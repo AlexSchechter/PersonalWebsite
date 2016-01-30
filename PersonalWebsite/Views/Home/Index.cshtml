@@ -1,0 +1,1348 @@
+﻿@model Blog.Models.SiteModel
+
+<!-- =========
+Start portrait section
+===================================-->
+<header class="portrait">
+    <div class="bg-line"></div>
+    <div class="body-portrait">
+
+        <!-- =========
+        Start Note Slider
+        ===================================-->
+        <div class="box-note">
+            <div id="slider-note" class="carousel slide" data-ride="carousel" data-interval="10000">
+                <div class="carousel-inner">
+
+                    <div class="item active">
+                        “The computer programmer is a creator of universes for which he alone is the lawgiver.”  Joseph Weizenbaum
+                    </div>
+                    <div class="item">
+                        “When you don't create things, you become defined by your tastes rather than ability.
+                        Your tastes only narrow & exclude people. So create.” Why The Lucky Stiff
+                    </div>
+                    <div class="item">
+                        “Far and away the best prize that life offers is the chance to work
+                        hard at work worth doing.” Theodore Roosevelt
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- =========
+        End Note Slider
+        ===================================-->
+        <!-- =========
+        Start portrait image Section
+        ===================================-->
+        <div class="portrait-img-area">
+            <img src="~/assets/images/avatar.png" alt="avatar" class="avatar" />
+            <div class="profile-links">
+                <a href="https://uk.linkedin.com/in/alexander-schechter-b28150" target="_blank" class="linkedin" data-toggle="tooltip" data-placement="right" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/alexanderschechter" target="_blank" class="facebook" data-toggle="tooltip" data-placement="left" title="Facebook"><i class="fa fa-facebook"></i></a>
+            </div>
+        </div>
+        <!-- =========
+        End  portrait image Section
+        ===================================-->
+        <!-- =========
+        Start Show Yor Name Section
+        ===================================-->
+        <h1 class="name">Alexander Schechter, PhD <small>Computer Programmer</small></h1>
+        <img src="~/assets/images/arrow-down.png" alt="" class="img-arrow">
+        <a href="javascript:void(0)" class="btn btn-flat " id="open-content">About Me</a>
+        <img src="~/assets/images/arrow-down.png" alt="" class="img-arrow">
+        <!-- =========
+        Start Show Yor Name Section
+        ===================================-->
+
+    </div>
+</header>
+<!-- =========
+End portrait section
+===================================-->
+<!-- =========
+Start Content section
+===================================-->
+<section class="content" id="main-content">
+
+    <!-- =========
+    Start navigation section
+    ===================================-->
+    <nav id='navigation'>
+        <ul class="navigation-list clearfix list-unstyled">
+            <li class="active"><a href="#about" data-toggle="tab" data-menu="about"><i class="icon-user"></i> <span>About Me</span></a></li>
+            <li><a href="#resume" data-toggle="tab" data-menu="resume"><i class="icon-newspaper"></i>  <span>Resume</span></a></li>
+            <li><a href="#portfolio" data-toggle="tab" data-menu="portfolio"><i class="icon-folder-open"></i> <span>Portfolio</span></a></li>
+            <li><a href="#blog" data-toggle="tab" data-menu="blog"><i class="icon-pencil"></i> <span>Blog</span></a></li>
+            <li><a href="#contact" data-toggle="tab" data-menu="contact"><i class="icon-mail"></i> <span>Contact</span></a></li>
+        </ul>
+    </nav>
+    <!-- =========
+    End navigation section
+    ===================================-->
+    <!-- =========
+    Start tab content section
+    ===================================-->
+    <div class="tab-content">
+
+
+        <!-- =========
+        Start About tab content section
+        ===================================-->
+        <div id='about' class="tab-pane  fade in  active">
+            <div class="body-content">
+
+                <!-- =========
+                Start About of self section
+                ===================================-->
+                <div class="row">
+                    <div class="col-md-3 text-center">
+                        <img src="~/assets/images/avatar.png" alt="avatar" class="img-responsive img-profile">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="mini-desc">
+                            <h2 class="title">Hello, my name is Alexander Schechter!</h2>
+                                      
+                            <div id="testwrapper">
+                                After completing my first degree in Germany in Mathematics with Computer Science,
+                                I managed to receive 2 scholarships to support my next career step: a PhD at University
+                                College London. After the completion of my doctorate, I have enjoyed a successful
+                                career in derivatives sales and structuring in Investment Banking.
+                            </div>
+                            @*<p>
+                                In 2012 I have decided to change my career radically and started to play poker
+                                professionally. Within a year I managed to progress from compete beginner to one
+                                of the best players in the world playing the highest stakes available. I have remained
+                                on top until my retirement in January 2016 and have made over $1mln in the process.
+                            </p>
+                            <p>
+                                I am now looking for a new challenge and have therefore decided to follow my
+                                dream of becoming a developer. I have therefore enrolled in a Coding Bootcamp.
+                            </p>*@
+                        </div>
+                    </div>
+                </div>
+                <!-- =========
+                End About of self section
+                ===================================-->
+                <!-- =========
+                Start List Indentity and services of self  section
+                ===================================-->
+                <!--<div class="deviter"></div>-->
+                <div class="row">
+                    <div class="col-sm-3"></div>
+                    <div class="col-md-7">
+                        <h3 class="title with-icon"><i class="fa fa-credit-card icn-title"></i> Indentity</h3>
+                        <div class="identity-area">
+                            <div class="row">
+                                <div class="col-sm-3"><label>Full Name</label></div>
+                                <div class="col-sm-8"> Alexander Schechter, PhD</div>
+                            </div>
+                            <!--<div class="row">
+                              <div class="col-sm-3"><label>Date of birth</label></div>
+                              <div class="col-sm-8"> September 11, 1990</div>
+                            </div>-->
+                            <div class="row">
+                                <div class="col-sm-3"><label>City</label></div>
+                                <div class="col-sm-8"> London, U.K. </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3"><label>Phone</label></div>
+                                <div class="col-sm-8"> +44 7932 077550</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3"><label>Email</label></div>
+                                <div class="col-sm-8"> a.schechter@outlook.com</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3"><label>LinkedIn</label></div>
+                                <div class="col-sm-8"> <a href="https://uk.linkedin.com/in/alexander-schechter-b28150"> LinkedIn</a></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3"><label>Facebook</label></div>
+                                <div class="col-sm-8"> <a href="https://www.facebook.com/alexanderschechter"> Facebook</a></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3"><label>Website</label></div>
+                                <div class="col-sm-8"> <a target="_blank" href="http://alexschechter.azurewebsites.net/"> Personal Website</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="col-md-6">
+                      <h3 class="title with-icon"><i class="fa fa-bell-o icn-title"></i> Services</h3>
+                      <div class="box-block">
+                        <ul class="list-unstyled list-strip">
+                          <li><i class="fa fa-check"></i> Slicing PSD to HTML</li>
+                          <li><i class="fa fa-check"></i> Create Wordpress Templates</li>
+                          <li><i class="fa fa-check"></i> Ruby On Rails Templates</li>
+                          <li><i class="fa fa-check"></i> Ruby On Rails Templates</li>
+                        </ul>
+                      </div>
+                    </div>-->
+                </div>
+                <!-- =========
+                End List Indentity and services of self section
+                ===================================-->
+                <!-- =========
+                Start List fact of self section
+                ===================================-->
+                <!--<div class="deviter"></div>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <h3 class="title with-icon"><i class="fa fa-check-square-o icn-title"></i> FACT</h3>
+                    <div class="box-fact-area">
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <div class="box-fact">
+                            <i class="fa fa-star-o icn-fixed"></i> 132 PROJECTS COMPLETED
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="box-fact">
+                            <i class="fa fa-smile-o icn-fixed"></i> 130 HAPPY CLIENTS
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="box-fact">
+                            <i class="fa fa-globe  icn-fixed"></i> 32 GLOBAL PATNERS
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="box-fact">
+                            <i class="fa fa-calendar-o icn-fixed"></i> 20 YEARS EXPRERIENCE
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>-->
+                <!-- =========
+                End List fact of self section
+                ===================================-->
+                <!-- =========
+                Start List of  client  and testimonial section
+                ===================================-->
+                <!--<div class="deviter"></div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <h3 class="title with-icon "><i class="fa fa-users icn-title"></i> Client</h3>
+                    <div class="box-block">
+                      <ul class="list-unstyled list-clients clearfix">
+                        <li><a href="#"><img src="~/assets/images/client/client.png"  alt="" class="img-responsive"></a></li>
+                        <li><a href="#"><img src="~/assets/images/client/client.png" alt="" class="img-responsive"></a></li>
+                        <li><a href="#"><img src="~/assets/images/client/client.png" alt="" class="img-responsive"></a></li>
+                        <li><a href="#"><img src="~/assets/images/client/client.png" alt="" class="img-responsive"></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <h3 class="title with-icon"><i class="fa fa-comments-o icn-title"></i> Testimonial</h3>
+                    <div class="box-block">
+                      <div id='testimonial-slider' class="carousel slide" data-ride="carousel" data-interval="false">
+                        <div class="carousel-inner">
+                          <div class="item active">
+                            <div class="box-testimonial">
+                              <div class="oComment">
+                                <h5>interactive designer</h5>
+                                <p> Alexander Schechter is an excellent designer and completed the project successfully. I would hire him again</p>
+                                <div class="text-right date-post"><small>Post: 1 Minute Ago</small></div>
+                              </div>
+                              <img src="~/assets/images/avatar.png" alt=''>
+                            </div>
+                          </div>
+                          <div class="item ">
+                            <div class="box-testimonial">
+                              <div class="oComment">
+                                <h5>interactive designer</h5>
+                                <p> Alexander Schechter is an excellent designer and completed the project successfully. I would hire him again</p>
+                                <div class="text-right date-post"><small>Post: 1 Minute Ago</small></div>
+                              </div>
+                              <img src="~/assets/images/avatar.png" alt=''>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="control-testi-slider">
+                          <a href="#testimonial-slider" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
+                          <a href="#testimonial-slider" data-slide="next"><i class="fa fa-chevron-right"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>-->
+                <!-- =========
+                End List of  client  and testimonial section
+                ===================================-->
+
+            </div>
+        </div>
+        <!-- =========
+        End About tab content section
+        ===================================-->
+        <!-- =========
+        Start resume tab content section
+        ===================================-->
+        <div id='resume' class="tab-pane fade">
+            <div class="body-content">
+                <div class="row">
+                    <div class="col-md-8">
+
+
+                        <!-- =========
+                        Start Time line section
+                        ===================================-->
+                        <h3 class="title with-icon"><span class="glyphicon glyphicon-plane icn-title"></span> Work History</h3>
+                        <div class="box-block">
+                            <div class="time-line">
+                                <div class="item-event">
+                                    <span class="date">2016</span>
+                                    <div class="event-content">
+                                        <h4>Professional Poker Player</h4>
+                                        <h5>High Stakes Cash Games (online)</h5>
+                                        <p>
+                                            Started as complete beginner and within a year developed to one of the best cash games
+                                            players in the world, playing the highest stakes available. Had constant success for over
+                                            4 years generating in excess of $1mln in profit. Produced poker videos for cardrunners.com and
+                                            coached several players.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="item-event">
+                                    <span class="date">2011</span>
+                                    <div class="event-content">
+                                        <h4>Derivatives Counterparty Interactor (Director)</h4>
+                                        <h5>Lehman Brothers Holdings / Lamco LLC</h5>
+                                        <p>
+                                            In charge of the external negotiations with the derivatives debtors and creditors in
+                                            Germany speaking countries. In charge of the the internal process of verifying payables
+                                            and receivables and the coordination between various teams (Trading, Legal and Middle
+                                            Office). Responsible for representing the negotiated proposals to the creditor’s committee.
+
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="item-event">
+                                    <span class="date">2009</span>
+                                    <div class="event-content">
+                                        <h4>Head of Switzerland and Luxembourg Sales</h4>
+                                        <h5>Solutions for Wealth</h5>
+                                        <p>
+                                            Sale of derivatives and funds linked to the FTSE Private Banking Index in a start-up
+                                            company. Account responsibility for all private banking and asset managers in Switzerland
+                                            and Luxembourg
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="item-event">
+                                    <span class="date">2008</span>
+                                    <div class="event-content">
+                                        <h4>Derivatives Sales and Structuring for Private Banks</h4>
+                                        <h5>Dresdner Kleinwort, London</h5>
+                                        <p>
+                                            Responsible for building the structured products franchise for Swiss and Luxembourg
+                                            private and retail banks. Focused on equity and interest rate derivatives, as well as
+                                            marketing other derivatives and structured products. Trained and supervised junior
+                                            salespeople from Oct 2005 and promoted to Director in Apr 2007.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="item-event">
+                                    <span class="date">2005</span>
+                                    <div class="event-content">
+                                        <h4>Derivatives Sales and Structuring for Corporates</h4>
+                                        <h5>Dresdner Kleinwort, London</h5>
+                                        <p>
+                                            Started in the Emerging Europe, Middle East and Africa regions team.	In mid-2002
+                                            I moved to the UK and Nordic regions team, where I assumed client responsibility
+                                            for the first time. My main focus was on interest rate and foreign exchange derivatives
+                                            hedging for corporate clients.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="item-event last">
+                                    <span class="date">2001</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- =========
+                        End Time line section
+                        ===================================-->
+                        <!-- =========
+                        Start Time line section
+                        ===================================-->
+                        <div class="deviter"></div>
+                        <h3 class="title with-icon"><span class="fa fa-book icn-title"></span> Education History</h3>
+                        <div class="box-block">
+                            <div class="time-line">
+                                <div class="item-event">
+                                    <span class="date">2016</span>
+                                    <div class="event-content">
+                                        <h4>Programming Bootcamp</h4>
+                                        <h5>Coder Foundry, Charlotte, USA</h5>
+                                        <p>Details of what I will learn</p>
+                                    </div>
+                                </div>
+                                <div class="item-event">
+                                    <span class="date">2016</span>
+                                </div>
+                            </div>
+                            <div class="time-line">
+                                <div class="item-event">
+                                    <span class="date">2002</span>
+                                    <div class="event-content">
+                                        <h4>PhD Degree</h4>
+                                        <h5>University College London, U.K.</h5>
+                                        <p>Degree in Pure Mathematics. Thesis: "Regularity and other properties of Hausdorff measures."</p>
+                                    </div>
+                                </div>
+                                <div class="item-event last">
+                                    <span class="date">1998</span>
+                                    <div class="event-content">
+                                        <h4>"Diplom" Degree</h4>
+                                        <h5>Universität Kaiserslautern, Germany</h5>
+                                        <p>Graduated in in Mathematics with Computer Science with "sehr gut" grade (highest achievable).</p>
+                                    </div>
+                                </div>
+                                <div class="item-event last">
+                                    <span class="date">1993</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- =========
+                    End Time line section
+                    ===================================-->
+
+                    <div class="col-md-4">
+                        <h3 class="title with-icon"><span class="fa fa-code icn-title"></span> Programming Skills</h3>
+                        <div class="box-block">
+
+
+                            <!-- =========
+                            STart of Skills Progress bars section
+                            ===================================-->
+                            <ul class="list-unstyled list-skills">
+                                <li>
+                                    <span class="caption-skill">C#</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 100%;">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="caption-skill">.NET</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 100%;">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="caption-skill">Angular JS / JQuery / Javascript</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 100%;">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="caption-skill">SQL / LINQ</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 100%;">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="caption-skill">HTML / CSS</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 100%;">
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+
+
+                            <!-- =========
+                            End of Skills Progress bars section
+                            ===================================-->
+
+                        </div>
+
+                        <!-- =========
+                        STart of Skills Progress point bars section
+                        ===================================-->
+
+                        <div class="deviter"></div>
+                        <h3 class="title with-icon"><span class="fa fa-globe icn-title"></span> Language Skills</h3>
+                        <div class="box-block">
+                            <ul class="list-unstyled list-strip">
+                                <li><i class="fa fa-check"></i> Fluent English</li>
+                                <li><i class="fa fa-check"></i> Fluent German</li>
+                                <li><i class="fa fa-check"></i> Fluent Romanian</li>
+                                <li><i class="fa fa-check"></i> Basic French</li>
+                            </ul>
+                        </div>
+
+                        <div class="deviter"></div>
+                        <h3 class="title with-icon"><span class="fa fa-star icn-title"></span> Special Achievements</h3>
+                        <div class="box-block">
+
+                            <!-- =========
+                            Start of Special Achievements section
+                            ===================================-->
+                            <div class="identity-area">
+                                <div class="row">
+                                    <div class="col-sm-2"><label>2007</label></div>
+                                    <div class="col-sm-10"> Completed the London Marathon and raised ca £3000 for the Prostate Cancer Charity</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-2"><label>1999-2000</label></div>
+                                    <div class="col-sm-10"> Elected President of the UCL Chess Society</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-2"><label>1998-2001</label></div>
+                                    <div class="col-sm-10"> Scholarship from the Engineering and Physical Science Research Council</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-2"><label>1997-2001</label></div>
+                                    <div class="col-sm-10"> Scholarship from the Deutscher Akademischer Auslandsdienst</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-2"><label>1999</label></div>
+                                    <div class="col-sm-10"> Winner of the Davenport Prizein Pure Mathematics</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="deviter"></div>
+                        <h3 class="title with-icon"><span class="fa fa-file icn-title"></span> Download CV</h3>
+                        <div class="box-block">
+                            <p>You can download or print my full CV in pdf format</p>
+                            <a href="#" class="btn btn-flat btn-block"><i class="fa fa-download"></i> Download</a>
+                            <div class="text-center">Or</div>
+                            <a href="#" class="btn btn-flat btn-block style2"><i class="fa fa-print"></i> Print</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- =========
+        End resume tab content section
+        ===================================-->
+        <!-- =========
+        Start portfolio tab content section
+        ===================================-->
+        <div id='portfolio' class="tab-pane fade">
+            <div class="body-content">
+                <h3 class="title with-icon"><span class="fa fa-briefcase icn-title"></span> My Works</h3>
+
+                <!-- =========
+                Start list control postfolio section
+                ===================================-->
+                <div class="text-center">
+                    <ul class="control-profolio list-inline">
+                        <li class="filter active" data-filter="all">All</li>
+                        <li class="filter" data-filter="cSharp">C#</li>
+                        <li class="filter" data-filter="angularJS">AngularJS</li>
+                        <li class="filter" data-filter="javascript">Javascript</li>
+                    </ul>
+                </div>
+                <!-- =========
+                End list control postfolio section
+                ===================================-->
+                <!-- =========
+                Start grid postfolio section
+                ===================================-->
+                <ul id='portfolio-grid' class="list-unstyled grid-portfolio">
+                    <li class="mix angularJS">
+                        <div class="item-portfolio">
+                            <a href="http://carfinderapp.azurewebsites.net/" class="preview-portfolio imgWrapper popup-iframe">
+                                <div class="mask"><div class="icn-center"><i class="fa fa-vimeo-square "></i></div></div>
+                                <img src="~/assets/images/bugatti.jpg" alt="bugatti.jpg" class="img-responsive-carfinder" />
+                            </a>
+                            <div class="desc-portfolio"><h5>Car Finder App<small><a href="http://carfinderapp.azurewebsites.net/" target="_blank">Click here for full Website</a></small></h5></div>
+                        </div>
+                    </li>
+                    <li class="mix javascript">
+                        <div class="item-portfolio">
+                            <a href="" data-toggle="modal" data-target="#primefactors" class="preview-portfolio imgWrapper">
+                                <div class="mask"><div class="icn-center"><i class="fa fa-link "></i></div></div>
+                                <img src="~/assets/images/factorization.png" alt="factorization.png" class="img-responsive" />
+                            </a>
+                            <div class="desc-portfolio"><h5>Prime Factors <small>a Javascript Exercise</small></h5></div>
+                            <div class="modal fade" id="primefactors" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                                        </div>
+                                        <div class="modal-body col-md-12">
+                                            <div class="col-md-5 margin-small h4">
+                                                <h2>Prime Factors</h2>
+                                                <br />
+                                                <p>This programme returns all the prime factors of a positive integer.</p>
+                                                <br />
+                                                <p>Please input an integer greater or equal to 2:</p>
+                                                <input type="number" id="primeFactorsInput" />
+                                                <br />
+                                                <br />
+                                                <button id="primeFactorsSubmit">Submit</button> &nbsp <button id="primeFactorsReset">Reset</button>
+                                                <br />
+                                                <br />
+                                                <p id="primeFactorsResult"></p>
+                                            </div>
+                                            <div class="col-md-7 margin-small">
+                                                <pre class="brush: js text">
+$(function () {
+    $("#primeFactorsSubmit").click(function () {
+        var  myNumber = +$("#primeFactorsInput").val();
+        if ( isNaN(myNumber) || myNumber < 2 || myNumber%1 ) {
+            //alert("The number has to be an integer greater or equal to 2, please input again")
+            $("#primeFactorsResult").text("The number has to be an integer greater or equal to 2, please input again").removeClass().addClass("wrongInput");
+            $("#primeFactorsInput").val("");
+            return;
+        }
+        $("#primeFactorsResult").text("The prime factors are: " + primeFactors(myNumber)).removeClass().addClass("displayOutput");
+    });
+    $("#primeFactorsReset").click(function () {
+        myReset();
+    });
+})
+function primeFactors(n) {
+    var allPrimeFactors = [];
+    var prime;
+    do {
+        prime = smallestPrimeFactor(n);
+        allPrimeFactors.push(prime);
+        n /= prime;
+    }
+    while (n != 1);
+    return allPrimeFactors;
+}
+function smallestPrimeFactor(n) {
+        for (var i = 2; i <= n ; i++) {
+            if (n % i == 0) {
+                return i;
+            }
+        }
+}
+function myReset() {
+    $("#primeFactorsInput").val("");
+    $("#primeFactorsResult").text("");
+    return;
+}
+                                                          </pre>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer no-margin">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="mix javascript">
+                        <div class="item-portfolio">
+                            <a href="" data-toggle="modal" data-target="#longestWord" class="preview-portfolio imgWrapper">
+                                <!--<a href="~/assets/images/portfolio/big/portfolio-big.png" class="preview-portfolio imgWrapper image-popup">-->
+                                <div class="mask"><div class="icn-center"><i class="fa fa-link "></i></div></div>
+                                <img src="~/assets/images/longestWord.jpg" alt="longestWord.jpg" class="img-responsive" />
+                            </a>
+                            <div class="desc-portfolio"><h5>The Longest Word <small>a Javascript Exercise</small></h5></div>
+
+                            <div class="modal fade" id="longestWord" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                                        </div>
+                                        <div class="modal-body col-md-12">
+                                            <div class="col-md-5 margin-small h4">
+                                                <h2>The Longest Word</h2>
+                                                <br />
+                                                <p>
+                                                    This programme returns the longest word (i.e. the longest sequence of letters) in a
+                                                    string. If there are two or more words of the same length, then the first word with
+                                                    that length is returned.
+                                                </p>
+                                                <br />
+                                                <p>Please input a string: &nbsp <input type="text" id="longestWordInput" /></p>
+                                                <button id="longestWordSubmit">Submit</button>
+                                                <br />
+                                                <br />
+                                                <p id="longestWordOutput" class="displayOutput"></p>
+                                            </div>
+                                            <div class="col-md-7 margin-small">
+                                                <pre class="brush: js text">
+$(function(){
+    $("#longestWordSubmit").click(function () {
+		var wordInput = $("#longestWordInput").val();
+		var longest = "";
+		var current = "";
+		for (i = 0; i < wordInput.length; i++)
+		{
+			if  (isLetter(wordInput.charAt(i)) == true)
+			{
+				current += wordInput.charAt(i);
+			}
+			if (isLetter(wordInput.charAt(i)) == false || i == wordInput.length - 1)
+			{
+				if (current.length > longest.length)
+				{
+					longest = current;
+				}
+				current = "";
+			}
+		}
+		$("#longestWordOutput").html("The longest word in the string is " + longest);
+	})
+	
+	function isLetter(l) {
+	  return l.toLowerCase() !== l.toUpperCase();
+	}
+})
+                                                          </pre>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer no-margin">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
+
+                    <li class="mix javascript">
+                        <div class="item-portfolio">
+                            <a href="" data-toggle="modal" data-target="#fiveNumbers" class="preview-portfolio imgWrapper">
+                                <div class="mask"><div class="icn-center"><i class="fa fa-link "></i></div></div>
+                                <img src="~/assets/images/fiveNumbers.png" alt="fiveNumbers.png" class="img-responsive" />
+                            </a>
+                            <div class="desc-portfolio"><h5>Five Numbers <small>a Javascript Exercise</small></h5></div>
+
+                            <div class="modal fade" id="fiveNumbers" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                                        </div>
+                                        <div class="modal-body col-md-12">
+                                            <div class="col-md-5 margin-small h4">
+                                                <h2>Five Numbers</h2>
+                                                <br />
+                                                <p>This programme performs several basic calculations on 5 numbers input by the user. The reset button resets all the values.</p>
+                                                <br />
+                                                <p>Please input the first number: &nbsp<input type="number" placeholder=0 id="firstInput" /></p>
+                                                <p>Please input the second number: &nbsp<input type="number" placeholder=0 id="secondInput" /> </p>
+                                                <p>Please input the third number: &nbsp<input type="number" placeholder=0 id="thirdInput" /> </p>
+                                                <p>Please input the fourth number: &nbsp<input type="number" placeholder=0 id="fourthInput" /> </p>
+                                                <p>Please input the fifth number: &nbsp<input type="number" placeholder=0 id="fifthInput" /> </p>
+                                                <button id="fiveNumbersSubmit">Calculate</button> &nbsp <button id="fiveNumbersReset">Reset</button>
+                                                <br />
+                                                <br />
+                                                <div class="displayOutput">
+                                                    <p id="smallest"></p>
+                                                    <p id="largest"></p>
+                                                    <p id="mean"></p>
+                                                    <p id="sum"></p>
+                                                    <p id="product"></p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7 margin-small">
+                                                <pre class="brush: js text">
+$(function(){
+	$("#fiveNumbersSubmit").click(function() {
+		var firstNumber = +$("#firstInput").val();
+		var secondNumber = +$("#secondInput").val();
+		var thirdNumber = +$("#thirdInput").val();
+		var fourthNumber = +$("#fourthInput").val();
+		var fifthNumber = +$("#fifthInput").val();
+		smallestNumber = Math.min(firstNumber, secondNumber, thirdNumber, fourthNumber, fifthNumber);
+		largestNumber = Math.max(firstNumber, secondNumber, thirdNumber, fourthNumber, fifthNumber);
+		mySum = firstNumber + secondNumber + thirdNumber + fourthNumber + fifthNumber;
+		myMean = mySum / 5;
+		myProduct = firstNumber * secondNumber * thirdNumber * fourthNumber * fifthNumber;
+		
+		$("#smallest").text("The smallest number is: " + smallestNumber);
+		$("#largest").text("The largest number is: " + largestNumber);
+		$("#mean").text("The mean of the numbers is: " + myMean);
+		$("#sum").text("The sum of the numbers is: " + mySum);
+		$("#product").text("The product of the numbers is: " + myProduct);
+	});
+	$("#fiveNumbersReset").click(function() {
+		$("#firstInput").val(0);
+		$("#secondInput").val(0);
+		$("#thirdInput").val(0);
+		$("#fourthInput").val(0);
+		$("#fifthInput").val(0);
+		
+		$("#smallest").text("");
+		$("#largest").text("");
+		$("#mean").text("");
+		$("#sum").text("");
+		$("#product").text("");			
+	});
+})
+                                                          </pre>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer no-margin">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
+
+
+
+                    <li class="mix javascript">
+                        <div class="item-portfolio">
+                            <a href="" data-toggle="modal" data-target="#factorial" class="preview-portfolio imgWrapper">
+                                <div class="mask"><div class="icn-center"><i class="fa fa-link "></i></div></div>
+                                <img src="~/assets/images/factorial.png" alt="factorial.png" class="img-responsive" />
+                            </a>
+                            <div class="desc-portfolio"><h5>Factorial <small>a Javascript Exercise</small></h5></div>
+
+                            <div class="modal fade" id="factorial" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                                        </div>
+                                        <div class="modal-body col-md-12">
+                                            <div class="col-md-5 margin-small h4">
+                                                <h2>Factorial</h2>
+                                                <br />
+                                                <p>This programme calculates the factorial of an integer. The reset button resets all the values.</p>
+                                                <br />
+                                                <p>Please input an integer: <input type="text" pattern="[0-9]" placeholder=0 id="factorialInput" /></p>
+                                                <button id="factorialSubmit">Submit</button> &nbsp <button id="factorialReset">Reset</button>
+                                                <br />
+                                                <br />
+                                                <p id="factorialResult"></p>
+                                            </div>
+                                            <div class="col-md-7 margin-small">
+                                                <pre class="brush: js text">
+$(function(){
+	$("#factorialSubmit").click(function() {
+		var factorial = +$("#factorialInput").val();
+		if (isNaN(factorial) || factorial < 0 || factorial % 1) {
+		    $("#factorialResult").text("The number has to be non-negative and an integer, please input again").removeClass().addClass("wrongInput");
+		    $("#factorialInput").val("");
+			return;
+		}
+		$("#factorialResult").text("The factorial of the number is: " + calculateFactorial(factorial)).removeClass().addClass("displayOutput");
+	});
+	
+	$("#factorialReset").click(function() {
+		myReset();
+	});
+	
+})
+function calculateFactorial(n){
+	if	(n === 0){
+		return 1;
+	}
+	else{
+		return n*calculateFactorial(n-1);
+	}
+	return n;
+}
+function myReset() {
+	$("#factorialInput").val("");
+	$("#factorialResult").text("");
+	return;
+}
+                                                          </pre>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer no-margin">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="mix javascript">
+                        <div class="item-portfolio">
+                            <a href="" data-toggle="modal" data-target="#fizzBuzz" class="preview-portfolio imgWrapper">
+                                <div class="mask"><div class="icn-center"><i class="fa fa-link "></i></div></div>
+                                <img src=@Url.Content("~/assets/images/fizzBuzz3.png") alt="fizzBuzz3.png" class="img-responsive" />
+                            </a>
+                            <div class="desc-portfolio"><h5>FizzBuzz <small>a Javascript Exercise</small></h5></div>
+
+                            <div class="modal fade" id="fizzBuzz" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                                        </div>
+                                        <div class="modal-body col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-5 margin-small h4">
+                                                    <h2>FizzBuzz</h2>
+                                                    <br />
+                                                    <p>
+                                                        This programme accepts two numbers between 1 and 100 from the user. The programme then iterates
+                                                        through all numbers from 1 to 100, printing numbers in ascending order to the screen. For each number
+                                                        that is a multiple of the first number input by the user, print "Fizz" instead of the number. For
+                                                        each number that is a multiple of the second number input by the user, print "Buzz" instead of the
+                                                        number. For numbers that are multiples of both numbers, print "FizzBuzz" instead of the number.
+                                                    </p>
+                                                    <br />
+                                                    <h1 id="title">Exercise 3: FizzBuzz</h1>
+                                                    <p>Please input Fizz (an integer between 1 and 100): <input type="number" id="firstFBInput" /></p>
+                                                    <p>Please input Buzz (an integer between 1 and 100): <input type="number" id="secondFBInput" /></p>
+                                                    <p>
+                                                        <input type="submit" value="Fizz & Buzz" id="launch" />
+                                                        <input type="submit" value="Reset Values" id="resetting" />
+                                                    </p>
+                                                    <div id="alertUser" class="wrongInput"></div>
+                                                    <div id="myHighlight" class="col-md-12">
+                                                        <table>
+                                                            <tbody id="outputTable"></tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-7 margin-small">
+                                                    <pre class="brush: js text">
+$(function(){
+	
+	$("#launch").click(function(){
+		
+		var firstNumber = +$("#firstFBInput").val();
+		var secondNumber = +$("#secondFBInput").val();
+		
+		$("#outputTable").empty();
+		$('table').removeClass();
+		
+		
+		if (firstNumber < 1 || secondNumber < 1 || firstNumber > 100 || secondNumber > 100 || firstNumber % 1 || secondNumber % 1 )
+		{	
+		    myReset();
+		    $("#alertUser").text("Both numbers have to be integers between 1 and 100, please input again");
+			return;
+		};
+		
+		$("#alertUser").text("");
+		$(myHighlight).addClass('tableStyleFB');
+	
+		for (i = 1; i <= 100; i++) {			
+			
+			if ((i-1)%10 === 0) {
+				$('#outputTable').append("<tr>");
+			};
+			
+			if (i%firstNumber === 0) {
+				if (i%secondNumber === 0) {
+					$('#outputTable').append("<td class='col-sm-1 fizzBuzz'>FizzBuzz</td>");
+				} else {
+					$('#outputTable').append("<td class='col-sm-1 fizz'>Fizz</td>");
+				}
+			} else if (i%secondNumber === 0) {
+				$('#outputTable').append("<td class='col-sm-1 buzz'>Buzz</td>");
+			} else {
+				$('#outputTable').append("<td class='col-sm-1 myNumber'>" + i + "</td>");
+			};
+			
+			if (i%10 === 0) {
+				$('#outputTable').append("</tr>");
+			};
+		};
+			
+	});
+			
+	$("#resetting").click(function(){
+		myReset();
+	});
+		
+	function myReset() {
+	$("#firstFBInput, #secondFBInput").val(''); 
+	$("#outputTable").empty();
+	$('table').removeClass();
+	$("#alertUser").text("");
+	} 
+});
+                                                          </pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer no-margin">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="mix javascript">
+                        <div class="item-portfolio">
+                            <a href="" data-toggle="modal" data-target="#palindrome" class="preview-portfolio imgWrapper">
+                                <div class="mask"><div class="icn-center"><i class="fa fa-link "></i></div></div>
+                                <img src="~/assets/images/palindrome.png" alt="palindrome.png" class="img-responsive-palindrome" />
+                            </a>
+                            <div class="desc-portfolio"><h5>Palindrome <small>a Javascript Exercise</small></h5></div>
+
+                            <div class="modal fade" id="palindrome" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                                        </div>
+                                        <div class="modal-body col-md-12">
+                                            <div class="col-md-5 margin-small h4">
+                                                <h2>Palindrome</h2>
+                                                <br />
+                                                <p>
+                                                    This programm determines whether a word is a Palindrome (the same backward as it is
+                                                    forward) and displays the result to the user. The reset button resets all the values.
+                                                </p>
+                                                <br />
+                                                <p>Please input a word: <input type="text" id="wordInput" /></p>
+                                                <p>
+                                                    <input type="submit" value="Submit" id="submitPalindrome" />
+                                                    <input type="submit" value="Reset" id="resetPalindrome" />
+                                                </p>
+                                                <br />
+                                                <p id="wordOutput" class="displayOutput"></p>
+                                            </div>
+                                            <div class="col-md-7 margin-small">
+                                                <pre class="brush: js text">
+$(function(){
+	
+	$("#submitPalindrome").click(function(){
+		
+		$('#myOutput').empty();	
+		$('body').removeClass();
+		
+		var myWord = $('#wordInput').val();
+		var wordLength = myWord.length;
+		var isPalindrome = true;
+		
+		$('#wordOutput').text('');
+		
+		if (wordLength === 0) {
+			alert("Please input a word");
+			return;
+		}
+	
+		for (i = 1; i < (Math.floor(wordLength/2) + 1); i++) {
+			
+			if (myWord[i-1] !== myWord[wordLength-i]) {
+				isPalindrome = false;
+				{break;} ;
+			}
+		}
+	
+		if (isPalindrome === true) {
+			$('#wordOutput').append(myWord + " is a Palindrome");
+		} 
+		else {
+			$('#wordOutput').append(myWord + " is NOT a Palindrome");
+		}
+	
+	})
+	
+	$("#resetPalindrome").click(function(){
+		$('#wordInput').val([]);
+		$('#wordOutput').empty();		
+	})
+		
+});
+                                                          </pre>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer no-margin">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="mix cSharp">
+                        <div class="item-portfolio">
+                            <a href="http://www.youtube.com/watch?v=0O2aH4XLbto" class="preview-portfolio imgWrapper popup-iframe">
+                                <div class="mask"><div class="icn-center"><i class="fa fa-youtube "></i></div></div>
+                                <img src="~/assets/images/fizzBuzzBlurr.jpg" alt="fizzBuzzBlurr.jpg" class="img-responsive" />
+                            </a>
+                            <div class="desc-portfolio"><h5>PERSONAL  PROJECT <small>a Web Design</small></h5></div>
+                        </div>
+                    </li>
+
+                    <!--<li class="mix websiteapp">
+                        <div class="item-portfolio">
+                            <a href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&amp;hl=en&amp;t=v&amp;hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom" class="preview-portfolio imgWrapper popup-iframe">
+                                <div class="mask"><div class="icn-center"><i class="fa fa-map-marker "></i></div></div>
+                                <img src="~/assets/images/portfolio/portfolio.png" alt="" class="img-responsive" />
+                            </a>
+                            <div class="desc-portfolio"><h5>PERSONAL  PROJECT <small>a Web Design</small></h5></div>
+                        </div>
+                    </li>
+                    <li class="mix mobileapp">
+                        <div class="item-portfolio">
+                            <a href="~/assets/images/portfolio/big/portfolio-big.png" class="preview-portfolio imgWrapper image-popup">
+                                <div class="mask"><div class="icn-center"><i class="fa fa-link "></i></div></div>
+                                <img src="~/assets/images/portfolio/portfolio.png" alt="" class="img-responsive" />
+
+                            </a>
+                            <div class="desc-portfolio"><h5>PERSONAL  PROJECT <small>a Web Design</small></h5></div>
+                        </div>
+
+                    </li>
+                    <li class="mix javascript">
+                        <div class="item-portfolio">
+                            <a href="~/assets/images/portfolio/big/portfolio-big.png " class="preview-portfolio imgWrapper image-popup">
+                                <div class="mask"><div class="icn-center"><i class="fa fa-picture-o "></i></div></div>
+                                <img src="~/assets/images/portfolio/portfolio.png" alt="" class="img-responsive" />
+                            </a>
+                            <div class="desc-portfolio"><h5>PERSONAL  PROJECT <small>a Web Design</small></h5></div>
+                        </div>
+                    </li>
+                    <li class="mix javascript">
+                        <div class="item-portfolio">
+                            <a href="~/assets/images/portfolio/big/portfolio-big.png" class="preview-portfolio imgWrapper image-popup">
+                                <div class="mask"><div class="icn-center"><i class="fa fa-picture-o "></i></div></div>
+                                <img src="~/assets/images/portfolio/portfolio.png" alt="" class="img-responsive" />
+                            </a>
+                            <div class="desc-portfolio"><h5>PERSONAL  PROJECT <small>a Web Design</small></h5></div>
+                        </div>
+                    </li>
+                    <li class="mix mobileapp">
+                        <div class="item-portfolio">
+                            <a href="~/assets/images/portfolio/big/portfolio-big.png" class="preview-portfolio imgWrapper image-popup">
+                                <div class="mask"><div class="icn-center"><i class="fa fa-link "></i></div></div>
+                                <img src="~/assets/images/portfolio/portfolio.png" alt="" class="img-responsive" />
+                            </a>
+                            <div class="desc-portfolio"><h5>PERSONAL  PROJECT <small>a Web Design</small></h5></div>
+                        </div>
+                    </li>
+                    <li class="mix websiteapp">
+                        <div class="item-portfolio">
+                            <a href="~/assets/images/portfolio/big/portfolio-big.png " class="preview-portfolio imgWrapper image-popup">
+                                <div class="mask"><div class="icn-center"><i class="fa fa-picture-o "></i></div></div>
+                                <img src="~/assets/images/portfolio/portfolio.png" alt="" class="img-responsive" />
+                            </a>
+                            <div class="desc-portfolio"><h5>PERSONAL  PROJECT <small>a Web Design</small></h5></div>
+                        </div>
+                    </li>-->
+                </ul>
+
+                <!-- =========
+                End grid postfolio section
+                ===================================-->
+                <!-- Running the SyntaxHighligher-->
+                <script type="text/javascript">
+                                        SyntaxHighlighter.all()
+                </script>
+
+            </div>
+        </div>
+        <!-- =========
+        End portfolio tab content section
+        ===================================-->
+        <!-- =========
+        Start Blog tab content section
+        ===================================-->
+        <div id='blog' class="tab-pane fade">
+            <div class="body-content">
+                <h2 class="title with-icon"><span class="fa  fa-comment-o icn-title"></span> My Journey to Becoming a Coder</h2>
+                @if (User.IsInRole("Admin"))
+                {
+                    <div href="" class="btn btn-flat style2">@Html.ActionLink("Create Post", "Create", "BlogEntries")</div>
+                }
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+
+                        <!-- =========
+                        Start blog post section
+                        ===================================-->
+
+                        <div class="blog-posts">
+                            <div id="blogContent" ng-app="app">
+                                <div ng-controller="appController">
+                                    <div ng-if="blogEntryPick != null">
+                                        <div class="blog-post">
+                                            <div class="row">
+                                                <div class="col-sm-8">
+                                                    <h3 class="title-post"><i class="fa fa-picture-o"></i> {{blogEntryPick.Title}}</h3>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="blog-date">
+                                                        {{getPrettyDateFormat(blogEntryPick.CreationDate)}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="body-post">
+                                                <div class="imgWrapper">                                                   
+                                                    <img ng-src="{{blogEntryPick.MediaURL}}" class="img-full blog-img" alt="Blog Post Picture" />
+                                                </div>
+                                                {{blogEntryPick.MediaURL}}
+                                                <div ng-bind-html="blogBody"></div>                                                                                                     
+                                                <p>
+                                                    <a href="" class="btn btn-flat style2" ng-click="goList()">Back to list</a>
+                                                    @if (User.IsInRole("Admin"))
+                                                    {
+                                                    <ul class="nav navbar-nav navbar-right">
+                                                        <li><a href="{{'../BlogEntries/Edit/'+blogEntryPick.Id}}">Edit</a></li>
+                                                        <li><a href="{{'../BlogEntries/Delete/'+blogEntryPick.Id}}">Delete</a></li>
+                                                    </ul>
+                                                    }
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>                            
+                                    <div ng-if="blogEntryPick == null">
+                                        <div ng-repeat="blogEntry in blogEntries">
+                                            <div class="blog-post">
+                                                <div class="row">
+                                                    <div class="col-sm-8">
+                                                        <h3 class="title-post"><a href="" ng-click="getBlogEntry(blogEntry.Id)"><i class="fa fa-picture-o"></i> {{blogEntry.Title}}</a></h3>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <div class="blog-date">
+                                                            {{getPrettyDateFormat(blogEntry.CreationDate)}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="body-post">
+                                                    
+                                                    <div class="imgWrapper">
+                                                        <img ng-src="{{blogEntry.MediaURL}}" class="img-full blog-img" alt="Blog Post Picture" />
+                                                    </div>                                                
+                                                    {{convertHTML(blogEntry.Body)}}
+                                                    <div ng-bind-html="blogBody"></div>@*" id = {{'wrapper' + blogEntry.Id}}"*@
+                                                    <p>
+                                                        <a href="" class="btn btn-flat style2" ng-click="getBlogEntry(blogEntry.Id)">Read More</a>
+                                                    </p>
+                                                    <div class="love-post-btn">
+                                                        <a href="#"><span><i class="fa fa-heart"></i></span></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a href="blog_list.html" class="btn btn-flat btn-lg btn-block">View All Post</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                                @*@{
+                    Html.RenderPartial("_BlogIndex", Model.BlogPosts);
+                }*@
+                                <!-- =========
+            End blog post section
+            ===================================-->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- =========
+        End Blog tab content section
+        ===================================-->
+        <!-- =========
+        Start Contact tab content section------
+        ===================================-->
+        <div id='contact' class="tab-pane fade">
+            <div class="body-content">
+                <h3 class="title with-icon"><span class="fa fa-coffee icn-title"></span> Get In Touch</h3>
+
+                <!-- =========
+                Start map section
+                ===================================-->
+                <div class="map-area">
+                    <div id="map"></div>
+                    <div class="info-map">
+                        <h3>Contact Info</h3>
+                        <ul class="list-unstyled list-info">
+                            <li><i class="fa fa-home"></i> Notting Hill, London, U.K.</li>
+                            <li><i class="fa fa-phone"></i> +44 7932 077550</li>
+                            <li><i class="fa fa-linkedin"></i> <a href="https://uk.linkedin.com/in/alexander-schechter-b28150" target="_blank">LinkedIn</a></li>
+                            <li><i class="fa fa-facebook"></i> <a href="https://www.facebook.com/alexanderschechter" target="_blank">Facebook</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="deviter"></div>
+                <br />
+                <!-- =========
+                End map section
+                ===================================-->
+                <!-- =========
+                Start form contact section
+                ===================================-->
+                <form>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="FullnameForm">Full Name</label>
+                                <input type="text" class="form-control" id="FullnameForm" placeholder="Enter Full Name">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="CompanyForm">Company</label>
+                                <input type="text" class="form-control" id="CompanyForm" placeholder="Enter Company">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="EmailForm">Email Address</label>
+                                <input type="email" class="form-control" id="EmailForm" placeholder="Enter Address">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="PhoneForm">Phone Number</label>
+                                <input type="text" class="form-control" id="PhoneForm" placeholder="Enter Phone Number">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="MesageForm">Message</label>
+                        <textarea class="form-control" rows="8" id="MesageForm" placeholder="Enter Message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-flat btn-lg"><span class="glyphicon glyphicon-send"></span> Send</button>
+                </form>
+                <!-- =========
+                End form contact section
+                ===================================-->
+
+            </div>
+        </div>
+
+    </div>
+    <!-- =========
+    End tab content section
+    ===================================-->
+
+
+    <a id="backtotop" href="#"><i class="fa fa-arrow-up"></i></a>
+    <div class="bg-line"></div>
+</section>
+<!-- =========
+End Content section
+===================================-->
+
+@*<div class="modal fade" id="fiveNumbers" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="false"></div>*@
+
+
+
+<!-- =========
+Start Footer section
+===================================-->
+<footer class="footer"></footer>
+<!-- =========
+End Footer section
+===================================-->

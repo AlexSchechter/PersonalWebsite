@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Blog.Models.BlogEntry>
+
+<div class="blog-posts">
+    @foreach (var blogEntry in Model)
+    {
+        <div class="blog-post">
+            <div class="row">
+                <div class="col-md-8">
+                    <h3 class="title-post">
+                        @Html.ActionLink(blogEntry.Title, "Details", "Posts", new { id = blogEntry.Id }, new { @class = "fa fa-picture-o" })
+                    </h3>
+                </div>
+                <div class="col-md-4">
+                    <div class="blog-date">
+                        @blogEntry.CreationDate.ToString("D")
+                    </div>
+                </div>
+            </div>
+            <div class="body-post">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="imgWrapper">
+                            <img src="~/assets/images/blog/blog.png" class="img-full blog-img" alt="" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <p>@Html.Raw(blogEntry.Body)</p>
+                        <p>
+                            @Html.ActionLink("Continue Reading...", "Details", "Posts", new { id = blogEntry.Id }, new { @class = "btn btn-flat style2" })
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    @Html.ActionLink("See All Posts", "Index", "Posts")
+</div>

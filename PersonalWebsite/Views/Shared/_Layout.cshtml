@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alexander Schechter</title>
+    <!-- Bootstrap -->
+    <link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS Font Icon and Plugins -->
+    <link href="~/assets/font/fa/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/assets/font/tello/css/fontello.css" rel="stylesheet">
+    <link href="~/assets/css/magnific-popup.css" rel="stylesheet">
+    <link href="~/assets/css/animation.css" rel="stylesheet">
+    <!-- Theme of Design -->
+    <link href="~/assets/css/style.css" rel="stylesheet">
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="~/assets/images/ASicon.png">
+    <link rel="apple-touch-icon" sizes="129x129" href="~/assets/images/icon.png">
+
+    <link href="~/assets/css/yourcss.css" rel="stylesheet">
+    <!-- Including SyntaxHighlighter JS and CSS files -->
+    <script type="text/javascript" src="~/assets/js/shCore.js"></script>
+    <script type="text/javascript" src="~/assets/js/shBrushJScript.js"></script>
+    <link href="~/assets/css/shCore.css" rel="stylesheet">
+    <link href="~/assets/css/shThemeDefault.css" rel="stylesheet">
+
+</head>
+<body>
+    <!-- =========
+    Start Wrapper Page
+    ===================================-->
+    <div id="wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                    @Html.Partial("_LoginPartial")
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- =========
+    End Wrapper Page
+    ===================================-->
+    <!-- =========
+    Text Showup Wait Document Ready
+    ===================================-->
+    <div id="wait-page" class="text-center">Loading...</div>
+
+    <!-- =========
+    Javascript load
+    ===================================-->
+    <!--<script src="https://code.jquery.com/jquery.js"></script>-->
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
+    <!-- jQuery animation page loader -->
+    <script src='~/assets/js/pace.min.js'></script>
+
+    <!-- JS maps for gmap3 JavaScript plugins) -->
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+    <script src="~/bootstrap/js/bootstrap.js"></script>
+    <script src="~/assets/js/jquery.autofix_anything.js"></script>
+    <script src="~/assets/js/jquery.mixitup.min.js"></script>
+    <script src='~/assets/js/gmap3.min.js'></script>
+    <script src='~/assets/js/jquery.magnific-popup.min.js'></script>
+
+    <!-- Configuration app js -->
+    <script src="~/assets/js/app.js"></script>
+    <!--Portfolio Javascript-->
+
+
+    <script src="~/assets/js/LongestWord.js"></script>
+    <script src="~/assets/js/FiveNumbers.js"></script>
+    <script src="~/assets/js/Factorial.js"></script>
+    <script src="~/assets/js/FizzBuzz.js"></script>
+    <script src="~/assets/js/Palindrome.js"></script>
+    <script src="~/assets/js/PrimeFactors.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/assets/js/NgApp.js"></script>
+
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/jquery.dotdotdot.min.js"></script>
+    <script src="~/assets/js/Blog.js"></script>
+
+  
+</body>
+</html>
+@*http://plnkr.co/edit/Pa2ujl5VzFrrsjbcQ4gL?p=preview*@
