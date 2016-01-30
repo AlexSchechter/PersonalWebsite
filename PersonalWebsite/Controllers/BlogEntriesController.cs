@@ -102,10 +102,17 @@ namespace Blog.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit([Bind(Include = "Id,CreationDate,UpdatedDate,Title,Summary,Body,Published")] BlogEntry blogEntry)
+        public ActionResult Edit([Bind(Include = "Id,CreationDate,UpdatedDate,Title,Summary,Body,MediaURL,Published")] BlogEntry blogEntry, HttpPostedFileBase fileUpload)
         {
             if (ModelState.IsValid)
             {
+                if (ImageUploadValidator.IsWebFriendlyImage(fileUpload))
+                {
+                    var fileName = Path.GetFileName(fileUpload.FileName);
+                    fileUpload.SaveAs(Path.Combine(Server.MapPath("~/assets/images/"), fileName));
+                    blogEntry.MediaURL = string.Concat("/assets/images/", fileName);
+                }
+                
                 blogEntry.UpdatedDate = new DateTimeOffset(DateTime.Now);
                 db.Entry(blogEntry).State = EntityState.Modified;
                 db.SaveChanges();
