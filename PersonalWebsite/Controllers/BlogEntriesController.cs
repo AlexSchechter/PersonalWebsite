@@ -61,7 +61,7 @@ namespace Blog.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Create([Bind(Include = "Title,Body,MediaURL,Published")] BlogEntry blogEntry, HttpPostedFileBase fileUpload)
+        public ActionResult Create([Bind(Include = "Title,Summary,Body,Published")] BlogEntry blogEntry, HttpPostedFileBase fileUpload)
         {
             if (ModelState.IsValid)
             {
@@ -102,7 +102,7 @@ namespace Blog.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit([Bind(Include = "Id,CreationDate,UpdatedDate,Title,Body,MediaURL,Published")] BlogEntry blogEntry)
+        public ActionResult Edit([Bind(Include = "Id,CreationDate,UpdatedDate,Title,Summary,Body,Published")] BlogEntry blogEntry)
         {
             if (ModelState.IsValid)
             {

@@ -1186,7 +1186,6 @@ $(function(){
                                                 <div class="imgWrapper">                                                   
                                                     <img ng-src="{{blogEntryPick.MediaURL}}" class="img-full blog-img" alt="Blog Post Picture" />
                                                 </div>
-                                                {{blogEntryPick.MediaURL}}
                                                 <div ng-bind-html="blogBody"></div>                                                                                                     
                                                 <p>
                                                     <a href="" class="btn btn-flat style2" ng-click="goList()">Back to list</a>
@@ -1219,8 +1218,8 @@ $(function(){
                                                     <div class="imgWrapper">
                                                         <img ng-src="{{blogEntry.MediaURL}}" class="img-full blog-img" alt="Blog Post Picture" />
                                                     </div>                                                
-                                                    {{convertHTML(blogEntry.Body)}}
-                                                    <div ng-bind-html="blogBody"></div>@*" id = {{'wrapper' + blogEntry.Id}}"*@
+                                                    {{convertHTML(blogEntry.Summary)}}
+                                                    <div ng-bind-html="blogBody"></div>
                                                     <p>
                                                         <a href="" class="btn btn-flat style2" ng-click="getBlogEntry(blogEntry.Id)">Read More</a>
                                                     </p>
@@ -1334,11 +1333,6 @@ $(function(){
 <!-- =========
 End Content section
 ===================================-->
-
-@*<div class="modal fade" id="fiveNumbers" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="false"></div>*@
-
-
-
 <!-- =========
 Start Footer section
 ===================================-->

@@ -22,6 +22,8 @@ namespace Blog.Models
         public DateTimeOffset? UpdatedDate { get; set; }
         public string Title { get; set; }
         [AllowHtml]
+        public string Summary { get; set; }
+        [AllowHtml]
         public string Body { get; set; }
         public string MediaURL { get; set; }
         public bool Published { get; set; }
