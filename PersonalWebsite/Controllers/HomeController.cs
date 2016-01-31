@@ -13,9 +13,9 @@ namespace Blog.Controllers
         {
             var db = new ApplicationDbContext();
 
-            var model = new SiteModel { BlogEntries = db.BlogEntries.ToList() };
-
-            return View(model);
+            //var model = new SiteModel { BlogEntries = db.BlogEntries.ToList() };
+            return View();
+            //return View(model);
         }
     }
 }
