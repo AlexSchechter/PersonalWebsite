@@ -77,6 +77,6 @@ C:\Coding\PersonalWebsite\PersonalWebsite\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Coding\PersonalWebsite\PersonalWebsite\bin\Microsoft.Owin.Security.Google.xml
 C:\Coding\PersonalWebsite\PersonalWebsite\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Coding\PersonalWebsite\PersonalWebsite\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Coding\PersonalWebsite\PersonalWebsite\obj\Debug\PersonalWebsite.csprojResolveAssemblyReference.cache
 C:\Coding\PersonalWebsite\PersonalWebsite\obj\Debug\Blog.dll
 C:\Coding\PersonalWebsite\PersonalWebsite\obj\Debug\Blog.pdb
+C:\Coding\PersonalWebsite\PersonalWebsite\obj\Debug\PersonalWebsite.csprojResolveAssemblyReference.cache

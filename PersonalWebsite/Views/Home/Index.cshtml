@@ -1,4 +1,4 @@
-﻿@model Blog.Models.SiteModel
+﻿@*@model Blog.Models.SiteModel*@
 
 <!-- =========
 Start portrait section
@@ -10,6 +10,82 @@ Start portrait section
         <!-- =========
         Start Note Slider
         ===================================-->
+       <ul class="nav navbar-nav navbar-right">
+         <li class="dropdown" id="tabDropDown">
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown">Log In <strong class="caret"></strong></a>
+            <div class="dropdown-menu" id="loginTab">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#login" data-toggle="tab" aria-expanded="true">Log in</a></li>
+                    <li class=""><a href="#register" data-toggle="tab" aria-expanded="false">Register</a></li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane" id="login">
+                        <div class="form-group">
+                            <section id="loginForm">
+                                @using Blog.Models
+                                @model LoginViewModel
+                                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                                        <div class="col-md-10">
+                                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                                        <div class="col-md-10">
+                                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <div class="checkbox">
+                                                @Html.CheckBoxFor(m => m.RememberMe)
+                                                @Html.LabelFor(m => m.RememberMe)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="Log in" class="btn btn-default" />
+                                        </div>
+                                    </div>
+                                    <p>
+                                        @Html.ActionLink("Register as a new user", "Register")
+                                    </p>
+                                    @* Enable this once you have account confirmation enabled for password reset functionality
+                                    <p>
+                                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                                    </p>*@      
+                                }
+                            </section>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="register">
+                        <form action="/Account/Register" method="post" role="form" class="ng-pristine ng-valid">
+                            <input class="form-control input-sm" type="text" name="FirstName" placeholder="First Name">
+                            <br>
+                            <input class="form-control input-sm" type="text" name="FirstName" placeholder="Last Name">
+                            <br>
+                            <input class="form-control input-sm" type="text" name="Email" placeholder="Email">
+                            <br>
+                            <input class="form-control input-sm" type="password" name="Password" placeholder="Password">
+                            <br>
+                            <input class="form-control input-sm" type="password" name="ConfirmPassword" placeholder="Confirm Password">
+                            <br>
+                            <input type="submit" value="Register" class="btn btn-default">
+                        </form>
+                    </div>
+                 </div>
+              </div>
+           </li>
+        </ul>
+        
         <div class="box-note">
             <div id="slider-note" class="carousel slide" data-ride="carousel" data-interval="10000">
                 <div class="carousel-inner">
@@ -103,13 +179,13 @@ Start Content section
                         <div class="mini-desc">
                             <h2 class="title">Hello, my name is Alexander Schechter!</h2>
                                       
-                            <div id="testwrapper">
+                           <p>
                                 After completing my first degree in Germany in Mathematics with Computer Science,
                                 I managed to receive 2 scholarships to support my next career step: a PhD at University
                                 College London. After the completion of my doctorate, I have enjoyed a successful
                                 career in derivatives sales and structuring in Investment Banking.
-                            </div>
-                            @*<p>
+                            </p>
+                            <p>
                                 In 2012 I have decided to change my career radically and started to play poker
                                 professionally. Within a year I managed to progress from compete beginner to one
                                 of the best players in the world playing the highest stakes available. I have remained
@@ -118,7 +194,7 @@ Start Content section
                             <p>
                                 I am now looking for a new challenge and have therefore decided to follow my
                                 dream of becoming a developer. I have therefore enrolled in a Coding Bootcamp.
-                            </p>*@
+                            </p>
                         </div>
                     </div>
                 </div>

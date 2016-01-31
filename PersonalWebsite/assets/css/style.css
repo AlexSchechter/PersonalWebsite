@@ -1,6 +1,11 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
 /*added by Alex Schechter*/
 
+#loginTab{
+    padding:15px;
+    padding-bottom:0px;
+    width:200px;
+}
 #testwrapper{
    float:left;
   width: 200px;
@@ -37,7 +42,7 @@
  }
 button{
 	border-radius:6px;
-	background-color: #63a4b5;
+	background-color:#63a4b5;
 	width:100px;
 	color:white;
     padding:4px;
