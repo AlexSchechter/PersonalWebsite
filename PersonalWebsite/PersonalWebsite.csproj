@@ -279,7 +279,6 @@
     <Content Include="assets\js\less-1.7.0.min.js" />
     <Content Include="assets\js\LongestWord.js" />
     <Content Include="assets\js\NgApp.js" />
-    <Content Include="assets\js\pace.min.js" />
     <Content Include="assets\js\Palindrome.js" />
     <Content Include="assets\js\PrimeFactors.js" />
     <Content Include="assets\js\shBrushJScript.js" />

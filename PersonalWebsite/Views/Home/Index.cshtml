@@ -1162,6 +1162,7 @@ $(function(){
             <div class="body-content">
                 @if (!User.Identity.IsAuthenticated)
                 {
+                 
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown" id="tabDropDown">
                             <a class="btn btn-default dropdown-toggle loginButton" href="#" data-toggle="dropdown">Log In <strong class="caret"></strong></a>
@@ -1171,7 +1172,7 @@ $(function(){
                                     <li class=""><a href="#register" data-toggle="tab" aria-expanded="false">Register</a></li>
                                 </ul>
                                 <div id="myTabContent" class="tab-content">
-                                    <div class="tab-pane" id="login">
+                                    <div class="tab-pane active in" id="login">
                                         <div class="form-group">
                                             <section id="loginForm">
                                                 @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "ng-pristine ng-valid", role = "form" }))
@@ -1209,7 +1210,7 @@ $(function(){
                                             </section>
                                         </div>
                                     </div>
-                                    <div class="tab-pane" id="register">
+                                    <div class="tab-pane fade" id="register">
                                         <form action="/Account/Register" method="post" role="form" class="ng-pristine ng-valid">
                                             <br />
                                             <input class="form-control input-sm" type="text" name="FirstName" placeholder="First Name">
@@ -1233,8 +1234,15 @@ $(function(){
                 }
                 else
                 {
+
                     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
                     {
+                        if (User.IsInRole("Admin"))
+                        {
+                            <div class="nav navbar-nav navbar-left">
+                                <button class="btn btn-default loginButton" id="createPost">@Html.ActionLink("Create Post", "Create", "BlogEntries")</button>
+                            </div>
+                        }
                         <div class="nav navbar-nav navbar-right">
                             @Html.AntiForgeryToken()
                             <button class="btn btn-default loginButton" id="loggedInAs" @Html.ActionLink("Logged in as " + User.Identity.Name, "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })></button>
@@ -1247,10 +1255,7 @@ $(function(){
                         <h2 class="title with-icon" id="blogTitle"><span class="fa fa-comment-o icn-title"></span> My Journey to Becoming a Coder</h2>
                     </div>
                 </div>
-                @if (User.IsInRole("Admin"))
-                {
-                    <div href="" class="btn btn-flat style2">@Html.ActionLink("Create Post", "Create", "BlogEntries")</div>
-                }
+               
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
 
@@ -1349,7 +1354,7 @@ $(function(){
                                                         <label for="MesageForm">Message</label>
                                                         <textarea class="form-control" rows="8" id="MesageForm" placeholder="Enter Message"></textarea>
                                                     </div>
-                                                    <button type="submit" class="btn btn-flat btn-lg">Post A Comment</button>
+                                                    <button type="submit" class="btn btn-flat btn-lg" id="postAComment">Post A Comment</button>
                                                 </form>
                                             </div>
                                         </div>

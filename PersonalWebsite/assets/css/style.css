@@ -9,12 +9,19 @@
 #loggedInAs{
     margin-bottom:10px;
 }
+#createPost{
+    margin-bottom:20px;
+}
+#postAComment{
+    width:auto;
+}
 .loginButton{
     font-weight:bold;
     color:#2C92AC;
     width:auto;
     padding:15px;
     border-width:1.11111px;
+    margin-bottom:10px;
 }
 #blogTitle{
     margin-top:0px;
