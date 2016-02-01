@@ -1,4 +1,10 @@
-﻿@*@model Blog.Models.SiteModel*@
+﻿@*
+    1. how to stop text from overflowing in my logged in as button? - SOLVED
+    2. why do my login/register tabs collapse when I try to click something? https://plnkr.co/edit/JVZApzi3CIc9I4Me2jH5?p=preview
+    3. what is this models.sitemodel? - SOLVED
+    4. how to not redirect to other pages if user makes login mistake?
+    5. how do I make the buttons when logged in behave the same as the buttons when logged out?
+*@
 @using Blog.Models
 @model LoginViewModel
 <!-- =========
@@ -1158,7 +1164,7 @@ $(function(){
                 {
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown" id="tabDropDown">
-                            <a class="btn btn-default dropdown-toggle" href="#" data-toggle="dropdown" id="loginButton">Log In <strong class="caret"></strong></a>
+                            <a class="btn btn-default dropdown-toggle loginButton" href="#" data-toggle="dropdown">Log In <strong class="caret"></strong></a>
                             <div class="dropdown-menu" id="loginTab">
                                 <ul class="nav nav-tabs">
                                     <li class="active"><a href="#login" data-toggle="tab" aria-expanded="true">Log in</a></li>
@@ -1193,12 +1199,12 @@ $(function(){
                                                         </div>
                                                     </div>
                                                     @*<p>
-                                                @Html.ActionLink("Register as a new user", "Register")
-                                            </p>*@
-                                                    @* Enable this once you have account confirmation enabled for password reset functionality
-                                            <p>
-                                                @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                                            </p>*@
+                                                    @Html.ActionLink("Register as a new user", "Register")
+                                                    </p>
+                                                        @* Enable this once you have account confirmation enabled for password reset functionality
+                                                    <p>
+                                                    @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                                                     </p>*@
                                                 }
                                             </section>
                                         </div>
@@ -1227,16 +1233,13 @@ $(function(){
                 }
                 else
                 {
-                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
                     {
-                        @Html.AntiForgeryToken()
-
-                        <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                @Html.ActionLink("Hello " + User.Identity.Name + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-                            </li>
-                            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-                        </ul>
+                        <div class="nav navbar-nav navbar-right">
+                            @Html.AntiForgeryToken()
+                            <button class="btn btn-default loginButton" id="loggedInAs" @Html.ActionLink("Logged in as " + User.Identity.Name, "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })></button>
+                            <button class="btn btn-default loginButton" id="logOut" href="javascript:document.getElementById('logoutForm').submit()" role="button">Log out</button>
+                        </div>
                     }
                 }
                 <div class="row">
@@ -1271,20 +1274,83 @@ $(function(){
                                                 </div>
                                             </div>
                                             <div class="body-post">
-                                                <div class="imgWrapper">                                                   
+                                                <div class="imgWrapper">
                                                     <img ng-src="{{blogEntryPick.MediaURL}}" class="img-full blog-img" alt="Blog Post Picture" />
                                                 </div>
-                                                <div ng-bind-html="blogBody"></div>                                                                                                     
+                                                <div ng-bind-html="blogBody"></div>
                                                 <p>
                                                     <a href="" class="btn btn-flat style2" ng-click="goList()">Back to list</a>
                                                     @if (User.IsInRole("Admin"))
                                                     {
-                                                    <ul class="nav navbar-nav navbar-right">
-                                                        <li><a href="{{'../BlogEntries/Edit/'+blogEntryPick.Id}}">Edit</a></li>
-                                                        <li><a href="{{'../BlogEntries/Delete/'+blogEntryPick.Id}}">Delete</a></li>
-                                                    </ul>
+                                                        <ul class="nav navbar-nav navbar-right">
+                                                            <li><a href="{{'../BlogEntries/Edit/'+blogEntryPick.Id}}">Edit</a></li>
+                                                            <li><a href="{{'../BlogEntries/Delete/'+blogEntryPick.Id}}">Delete</a></li>
+                                                        </ul>
                                                     }
                                                 </p>
+                                            </div>
+                                            <h3 class="title with-icon"><span class="fa  fa-comments-o icn-title"></span> 5 Comments</h3>
+                                            <div class="box-block box-comments">
+                                                <div class="media">
+                                                    <a class="pull-left" href="#">
+                                                        <img class="media-object img-circle" data-src="holder.js/64x64" alt="64x64" style="width: 64px; height: 64px;" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIj48L3JlY3Q+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+">
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Timur Arturo</h4>
+                                                        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                                                        <p><a class="btn btn-xs btn-flat style2">Replay &nbsp; ↓</a></p>
+                                                    </div>
+                                                </div>
+                                                <div class="media">
+                                                    <a class="pull-left" href="#">
+                                                        <img class="media-object img-circle" data-src="holder.js/64x64" alt="64x64" style="width: 64px; height: 64px;" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIj48L3JlY3Q+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+">
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Leszek Grey</h4>
+                                                        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                                                        <p><a class="btn btn-xs btn-flat style2">Replay &nbsp; ↓</a></p>
+                                                        <div class="media">
+                                                            <a class="pull-left" href="#">
+                                                                <img class="media-object img-circle" data-src="holder.js/64x64" alt="64x64" style="width: 64px; height: 64px;" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIj48L3JlY3Q+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+">
+                                                            </a>
+                                                            <div class="media-body">
+                                                                <h4 class="media-heading">Vilmos Dong</h4>
+                                                                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                                                                <p><a class="btn btn-xs btn-flat style2">Replay &nbsp; ↓</a></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <h3 class="title with-icon"><span class="fa  fa-comment-o icn-title"></span> Drop a Comments</h3>
+                                            <div class="box-block">
+                                                <form>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="FullnameForm">Fullname</label>
+                                                                <input type="text" class="form-control" id="FullnameForm" placeholder="Enter Fullname">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="EmailForm">Email Address</label>
+                                                                <input type="email" class="form-control" id="EmailForm" placeholder="Enter Address">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="WebsiteForm">Website</label>
+                                                        <input type="text" class="form-control" id="WebsiteForm" placeholder="Enter Website">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="MesageForm">Message</label>
+                                                        <textarea class="form-control" rows="8" id="MesageForm" placeholder="Enter Message"></textarea>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-flat btn-lg">Post A Comment</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>                            
@@ -1302,15 +1368,20 @@ $(function(){
                                                     </div>
                                                 </div>
                                                 <div class="body-post">
-                                                    
-                                                    <div class="imgWrapper">
-                                                        <img ng-src="{{blogEntry.MediaURL}}" class="img-full blog-img" alt="Blog Post Picture" />
-                                                    </div>                                                
-                                                    {{convertHTML(blogEntry.Summary)}}
-                                                    <div ng-bind-html="blogBody"></div>
-                                                    <p>
-                                                        <a href="" class="btn btn-flat style2" ng-click="getBlogEntry(blogEntry.Id)">Read More</a>
-                                                    </p>
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="imgWrapper">
+                                                                <img ng-src="{{blogEntry.MediaURL}}" class="img-full blog-img" alt="Blog Post Picture" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            {{convertHTML(blogEntry.Summary)}}
+                                                            <div ng-bind-html="blogBody"></div>
+                                                            <p>
+                                                                <a href="" class="btn btn-flat style2" ng-click="getBlogEntry(blogEntry.Id)">Read More</a>
+                                                            </p>
+                                                        </div>
+                                                    </div>
                                                     <div class="love-post-btn">
                                                         <a href="#"><span><i class="fa fa-heart"></i></span></a>
                                                     </div>

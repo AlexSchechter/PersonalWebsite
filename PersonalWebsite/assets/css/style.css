@@ -1,9 +1,20 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
 /*added by Alex Schechter*/
 
-#loginButton{
-    font-weight: bold;
-    color: #2C92AC;
+#logOut{
+    margin-right:12px;
+    margin-left:-5px;
+    margin-bottom:10px;
+}
+#loggedInAs{
+    margin-bottom:10px;
+}
+.loginButton{
+    font-weight:bold;
+    color:#2C92AC;
+    width:auto;
+    padding:15px;
+    border-width:1.11111px;
 }
 #blogTitle{
     margin-top:0px;

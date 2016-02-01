@@ -6,11 +6,6 @@ using System.Web.Mvc;
 
 namespace Blog.Models
 {
-    public class SiteModel
-    {
-        public IEnumerable<BlogEntry> BlogEntries { get; set; }
-    }
-
     public class BlogEntry
     {
         public BlogEntry()
