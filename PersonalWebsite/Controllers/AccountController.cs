@@ -13,6 +13,7 @@ using Blog.Models;
 namespace Blog.Controllers
 {
     [Authorize]
+    [RequireHttps]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
@@ -70,6 +71,7 @@ namespace Blog.Controllers
         {
             if (!ModelState.IsValid)
             {
+                //return Content("This is an error message", "text/html");
                 return View(model);
             }
 
@@ -333,7 +335,7 @@ namespace Blog.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToAction("Index","Home");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:

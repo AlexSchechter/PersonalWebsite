@@ -7,6 +7,7 @@
 *@
 @using Blog.Models
 @model LoginViewModel
+
 <!-- =========
 Start portrait section
 ===================================-->
@@ -1160,77 +1161,87 @@ $(function(){
         ===================================-->
         <div id='blog' class="tab-pane fade">
             <div class="body-content">
+                
                 @if (!User.Identity.IsAuthenticated)
                 {
-                 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown" id="tabDropDown">
-                            <a class="btn btn-default dropdown-toggle loginButton" href="#" data-toggle="dropdown">Log In <strong class="caret"></strong></a>
-                            <div class="dropdown-menu" id="loginTab">
-                                <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#login" data-toggle="tab" aria-expanded="true">Log in</a></li>
-                                    <li class=""><a href="#register" data-toggle="tab" aria-expanded="false">Register</a></li>
-                                </ul>
-                                <div id="myTabContent" class="tab-content">
-                                    <div class="tab-pane active in" id="login">
-                                        <div class="form-group">
-                                            <section id="loginForm">
-                                                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "ng-pristine ng-valid", role = "form" }))
-                                                {
-                                                    <br />
-                                                    @Html.AntiForgeryToken()
-                                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                                    <div class="form-group">
-                                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
-                                                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                                                    </div>
-                                                    <div class="form-group">
-                                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
-                                                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="checkbox" id="logiCheckBox">
-                                                            @Html.CheckBoxFor(m => m.RememberMe)
-                                                            @Html.LabelFor(m => m.RememberMe)
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group" id="loginSubmit">
-                                                        <div class="col-sm-offset-4 col-sm-8">
-                                                            <input type="submit" value="Log in" class="btn btn-default" />
-                                                        </div>
-                                                    </div>
-                                                    @*<p>
-                                                    @Html.ActionLink("Register as a new user", "Register")
-                                                    </p>
-                                                        @* Enable this once you have account confirmation enabled for password reset functionality
-                                                    <p>
-                                                    @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                                                     </p>*@
-                                                }
-                                            </section>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="register">
-                                        <form action="/Account/Register" method="post" role="form" class="ng-pristine ng-valid">
-                                            <br />
-                                            <input class="form-control input-sm" type="text" name="FirstName" placeholder="First Name">
-                                            <br>
-                                            <input class="form-control input-sm" type="text" name="FirstName" placeholder="Last Name">
-                                            <br>
-                                            <input class="form-control input-sm" type="text" name="Email" placeholder="Email">
-                                            <br>
-                                            <input class="form-control input-sm" type="password" name="Password" placeholder="Password">
-                                            <br>
-                                            <input class="form-control input-sm" type="password" name="ConfirmPassword" placeholder="Confirm Password">
-                                            <br>
-                                            <input type="submit" value="Register" class="btn btn-default">
-                                        </form>
-                                    </div>
-                                </div>
 
-                            </div>
-                        </li>
-                    </ul>
+                        <ul class="nav navbar-nav navbar-right">
+
+                            <li class="dropdown" id="tabDropDown">
+                                <a class="btn btn-default dropdown-toggle loginButton" href="#" data-toggle="dropdown">Log In <strong class="caret"></strong></a>
+                                <div class="dropdown-menu" id="loginTab">
+                                    <form>
+                                        <ul class="nav nav-tabs">
+                                            <li class="active"><a href="#login" data-toggle="tab" aria-expanded="true">Log in</a></li>
+                                            <li class=""><a href="#register" data-toggle="tab" aria-expanded="false">Register</a></li>
+                                        </ul>
+                                    </form>
+                                        <div id="myTabContent" class="tab-content">
+                                            <div class="tab-pane active in" id="login">
+                                                <div class="form-group">
+                                                    <section id="loginForm">
+                                                        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "ng-pristine ng-valid", role = "form" }))
+                                                        {
+                                                            <br />
+                                                            @Html.AntiForgeryToken()
+                                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                                            <div class="form-group">
+                                                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+                                                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                                            </div>
+                                                            <div class="form-group">
+                                                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                                                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="checkbox" id="logiCheckBox">
+                                                                    @Html.CheckBoxFor(m => m.RememberMe)
+                                                                    @Html.LabelFor(m => m.RememberMe)
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group" id="loginSubmit">
+                                                                <div class="col-sm-offset-4 col-sm-8">
+                                                                    <input type="submit" value="Log in" class="btn btn-default" />
+                                                                </div>
+                                                            </div>
+                                                            @*<p>
+                                                                @Html.ActionLink("Register as a new user", "Register")
+                                                                </p>
+                                                                    @* Enable this once you have account confirmation enabled for password reset functionality
+                                                                <p>
+                                                                @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                                                             </p>*@
+                                                        }
+                                                    </section>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="register">
+                                                @*<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>*@ 
+                                                <div class="col-md-4">
+                                                    @using (Html.BeginForm("ExternalLogin", "Account")) {
+                                                    @Html.AntiForgeryToken()
+                                                    <div id="socialLoginList">
+                                                        <p>
+                                                            @using Microsoft.Owin.Security
+                                                            @{ 
+
+                                                                var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
+                                                                foreach (Microsoft.Owin.Security.AuthenticationDescription p in loginProviders)
+                                                                {
+                                                                <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
+                                                                }
+                                                            }
+                                                        </p>
+                                                    </div>
+                                                    }
+                                                </div>                                             
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </li>
+
+                        </ul>
                 }
                 else
                 {
@@ -1408,6 +1419,7 @@ $(function(){
 
                     </div>
                 </div>
+                  
             </div>
         </div>
         <!-- =========

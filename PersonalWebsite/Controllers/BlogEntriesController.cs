@@ -10,6 +10,7 @@ using System.IO;
 
 namespace Blog.Controllers
 {
+    [RequireHttps]
     public class BlogEntriesController : Controller
     {
     
