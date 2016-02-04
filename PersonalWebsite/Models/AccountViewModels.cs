@@ -50,7 +50,7 @@ namespace Blog.Models
     {
         [Required]
         [Display(Name = "Email")]
-        [EmailAddress]
+        //[EmailAddress]
         public string Email { get; set; }
 
         [Required]
@@ -69,12 +69,12 @@ namespace Blog.Models
         public string FirstName { get; set; }
 
         [Required]
-        [EmailAddress]
+        //[EmailAddress]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         [Required]
-        [EmailAddress]
+        //[EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
@@ -93,7 +93,7 @@ namespace Blog.Models
     public class ResetPasswordViewModel
     {
         [Required]
-        [EmailAddress]
+        //[EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
@@ -114,7 +114,7 @@ namespace Blog.Models
     public class ForgotPasswordViewModel
     {
         [Required]
-        [EmailAddress]
+        //[EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
     }

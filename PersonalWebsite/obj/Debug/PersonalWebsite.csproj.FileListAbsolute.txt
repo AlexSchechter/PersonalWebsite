@@ -95,4 +95,3 @@ C:\Coding\PersonalWebsite\PersonalWebsite\bin\roslyn\System.IO.FileSystem.Primit
 C:\Coding\PersonalWebsite\PersonalWebsite\bin\roslyn\vbc.exe.config
 C:\Coding\PersonalWebsite\PersonalWebsite\bin\roslyn\vbc.rsp
 C:\Coding\PersonalWebsite\PersonalWebsite\bin\Owin.Security.Providers.dll
-C:\Coding\PersonalWebsite\PersonalWebsite\obj\Debug\PersonalWebsite.csprojResolveAssemblyReference.cache

@@ -18,7 +18,8 @@ namespace Blog.Controllers
 
         public JsonResult GetBlogEntries()
         {
-            return Json(db.BlogEntries.OrderByDescending(p => p.CreationDate).ToList(), JsonRequestBehavior.AllowGet);
+            var temp = db.BlogEntries.Include(p => p.Comments).ToList().OrderByDescending(p => p.CreationDate);
+            return Json(temp, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult GetBlogEntry(int id)

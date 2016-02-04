@@ -6,20 +6,11 @@
     5. how do I make the buttons when logged in behave the same as the buttons when logged out?
 *@
 @using Blog.Models
-@model LoginViewModel
-
+@model Comment
 <!-- =========
 Start portrait section
 ===================================-->
 <div id="fb-root"></div>
-@*<script>
-(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=955879811154566";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>*@
 <header class="portrait">
     <div class="bg-line"></div>
     <div class="body-portrait">
@@ -1170,107 +1161,8 @@ $(function(){
         ===================================-->
         <div id='blog' class="tab-pane fade">
             <div class="body-content">
-                
-                @if (!User.Identity.IsAuthenticated)
-                {
-
-                        <ul class="nav navbar-nav navbar-right">
-
-                            <li class="dropdown" id="tabDropDown">
-                                <a class="btn btn-default dropdown-toggle loginButton" href="#" data-toggle="dropdown">Log In <strong class="caret"></strong></a>
-                                <div class="dropdown-menu" id="loginTab">
-                                    <form>
-                                        <ul class="nav nav-tabs">
-                                            <li class="active"><a href="#login" data-toggle="tab" aria-expanded="true">Log in</a></li>
-                                            <li class=""><a href="#register" data-toggle="tab" aria-expanded="false">Register</a></li>
-                                        </ul>
-                                    </form>
-                                        <div id="myTabContent" class="tab-content">
-                                            <div class="tab-pane active in" id="login">
-                                                <div class="form-group">
-                                                    <section id="loginForm">
-                                                        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "ng-pristine ng-valid", role = "form" }))
-                                                        {
-                                                            <br />
-                                                            @Html.AntiForgeryToken()
-                                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                                            <div class="form-group">
-                                                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
-                                                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                                                            </div>
-                                                            <div class="form-group">
-                                                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
-                                                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <div class="checkbox" id="logiCheckBox">
-                                                                    @Html.CheckBoxFor(m => m.RememberMe)
-                                                                    @Html.LabelFor(m => m.RememberMe)
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group" id="loginSubmit">
-                                                                <div class="col-sm-offset-4 col-sm-8">
-                                                                    <input type="submit" value="Log in" class="btn btn-default" />
-                                                                </div>
-                                                            </div>
-                                                            @*<p>
-                                                                @Html.ActionLink("Register as a new user", "Register")
-                                                                </p>
-                                                                    @* Enable this once you have account confirmation enabled for password reset functionality
-                                                                <p>
-                                                                @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                                                             </p>*@
-                                                        }
-                                                    </section>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane fade" id="register">
-                                                <div class="col-md-4">
-                                                    @using (Html.BeginForm("ExternalLogin", "Account")) {
-                                                    @Html.AntiForgeryToken()
-                                                    <div id="socialLoginList">
-                                                        <p>
-                                                            @using Microsoft.Owin.Security
-                                                            @{ 
-
-                                                                var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
-                                                                foreach (Microsoft.Owin.Security.AuthenticationDescription p in loginProviders)
-                                                                {
-                                                                <button type="submit" class="fb-login-button" data-size="large" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
-                                                                }
-                                                            }
-                                                        </p>
-                                                    </div>
-                                                    }
-                                                </div>                                             
-                                            </div>
-                                        </div>
-                                    
-                                </div>
-                            </li>
-
-                        </ul>
-                }
-                else
-                {
-
-                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
-                    {
-                        if (User.IsInRole("Admin"))
-                        {
-                            <div class="nav navbar-nav navbar-left">
-                                <button class="btn btn-default loginButton" id="createPost">@Html.ActionLink("Create Post", "Create", "BlogEntries")</button>
-                            </div>
-                        }
-                        <div class="nav navbar-nav navbar-right">
-                            @Html.AntiForgeryToken()
-                            <button class="btn btn-default loginButton" id="loggedInAs" @Html.ActionLink("Logged in as " + User.Identity.Name, "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })>
-
-                            </button>
-                            <button class="btn btn-default loginButton" id="logOut" href="javascript:document.getElementById('logoutForm').submit()" role="button">Log out</button>
-                        </div>
-                    }
-                }
+                @Html.Partial("_LoginPartial", new LoginViewModel())
+               
                 <div class="row">
                     <div class="col-sm-12">
                         <h2 class="title with-icon" id="blogTitle"><span class="fa fa-comment-o icn-title"></span> My Journey to Becoming a Coder</h2>
@@ -1309,8 +1201,8 @@ $(function(){
                                                     @if (User.IsInRole("Admin"))
                                                     {
                                                         <ul class="nav navbar-nav navbar-right">
-                                                            <li><a href="{{'../BlogEntries/Edit/'+blogEntryPick.Id}}">Edit</a></li>
-                                                            <li><a href="{{'../BlogEntries/Delete/'+blogEntryPick.Id}}">Delete</a></li>
+                                                            <li><a href="{{'../BlogEntries/Edit/' + blogEntryPick.Id}}">Edit</a></li>
+                                                            <li><a href="{{'../BlogEntries/Delete/' + blogEntryPick.Id}}">Delete</a></li>
                                                         </ul>
                                                     }
                                                 </p>
@@ -1349,34 +1241,25 @@ $(function(){
                                                 </div>
                                             </div>
 
-                                            <h3 class="title with-icon"><span class="fa  fa-comment-o icn-title"></span> Drop a Comments</h3>
+                                            <h3 class="title with-icon"><span class="fa  fa-comment-o icn-title"></span> Drop a Comment</h3>
+                                            @*@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "ng-pristine ng-valid", role = "form" }))*@
                                             <div class="box-block">
-                                                <form>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="FullnameForm">Fullname</label>
-                                                                <input type="text" class="form-control" id="FullnameForm" placeholder="Enter Fullname">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="EmailForm">Email Address</label>
-                                                                <input type="email" class="form-control" id="EmailForm" placeholder="Enter Address">
-                                                            </div>
-                                                        </div>
+                                                @using (Html.BeginForm("Create", "Comments", FormMethod.Post, new { @class = "ng-pristine ng-valid", role = "form" }))
+                                                {                            
+                                                    @Html.AntiForgeryToken()
+                                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                                    <input data-val="true" id="BlogEntryId" name="PostId" type="hidden" value="{{blogEntryPick.Id}}" />
+                                                   
+                                                    <div class="form-group">
+                                                        @Html.TextBoxFor(m => m.Title, new { @class = "form-control", @placeholder = "Title", @id = "WebSiteForm" })
+                                                        @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="WebsiteForm">Website</label>
-                                                        <input type="text" class="form-control" id="WebsiteForm" placeholder="Enter Website">
+                                                        @Html.TextAreaFor(m => m.Body, new { @class = "form-control", @placeholder = "Title", @id = "MessageForm" })
+                                                        @Html.ValidationMessageFor(m => m.Body, "", new { @class = "text-danger" })
                                                     </div>
-
-                                                    <div class="form-group">
-                                                        <label for="MesageForm">Message</label>
-                                                        <textarea class="form-control" rows="8" id="MesageForm" placeholder="Enter Message"></textarea>
-                                                    </div>
-                                                    <button type="submit" class="btn btn-flat btn-lg" id="postAComment">Post A Comment</button>
-                                                </form>
+                                                    <button type="submit" class="btn btn-flat btn-lg">Post A Comment</button>
+                                                }
                                             </div>
                                         </div>
                                     </div>                            
@@ -1414,15 +1297,11 @@ $(function(){
                                                 </div>
                                             </div>
                                         </div>
-                                        <a href="blog_list.html" class="btn btn-flat btn-lg btn-block">View All Post</a>
+                                        @*<a href="blog_list.html" class="btn btn-flat btn-lg btn-block">View All Post</a>*@
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                                @*@{
-                    Html.RenderPartial("_BlogIndex", Model.BlogPosts);
-                }*@
                                 <!-- =========
             End blog post section
             ===================================-->

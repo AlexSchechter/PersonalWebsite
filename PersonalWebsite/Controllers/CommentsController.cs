@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using Blog.Models;
 
@@ -18,7 +15,8 @@ namespace Blog.Controllers
         // GET: Comments
         public ActionResult Index()
         {
-            var comments = db.Comments.Include(c => c.Author).Include(c => c.Editor).Include(c => c.ParentComment).Include(c => c.Post);
+            //var comments = db.Comments.Include(c => c.Author).Include(c => c.Editor).Include(c => c.ParentComment).Include(c => c.Post);
+            var comments = db.Comments.Include(c => c.Author);
             return View(comments.ToList());
         }
 
@@ -39,13 +37,10 @@ namespace Blog.Controllers
 
         // GET: Comments/Create
         [Authorize]
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            ViewBag.AuthorId = new SelectList(db.Users, "Id", "FirstName");
-            ViewBag.EditorId = new SelectList(db.Users, "Id", "FirstName");
-            ViewBag.ParentCommentId = new SelectList(db.Comments, "Id", "AuthorId");
-            ViewBag.PostId = new SelectList(db.BlogEntries, "Id", "Title");
-            return View();
+            Comment model = new Comment { PostId = id };
+            return View(model);
         }
 
         // POST: Comments/Create
@@ -53,19 +48,16 @@ namespace Blog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,PostId,AuthorId,EditorId,Body,CreationDate,UpdatedDate,UpdateReason,ParentCommentId,MarkForDeletion")] Comment comment)
+        public ActionResult Create([Bind(Include = "PostId,Body,Title")] Comment comment)
         {
             if (ModelState.IsValid)
             {
+                comment.CreationDate = new DateTimeOffset(DateTime.Now);
+                comment.AuthorId = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name).Id;
                 db.Comments.Add(comment);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home"); //Redirect()
             }
-
-            ViewBag.AuthorId = new SelectList(db.Users, "Id", "FirstName", comment.AuthorId);
-            ViewBag.EditorId = new SelectList(db.Users, "Id", "FirstName", comment.EditorId);
-            ViewBag.ParentCommentId = new SelectList(db.Comments, "Id", "AuthorId", comment.ParentCommentId);
-            ViewBag.PostId = new SelectList(db.BlogEntries, "Id", "Title", comment.PostId);
             return View(comment);
         }
 
@@ -87,8 +79,7 @@ namespace Blog.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.AuthorId = new SelectList(db.Users, "Id", "FirstName", comment.AuthorId);
-            ViewBag.EditorId = new SelectList(db.Users, "Id", "FirstName", comment.EditorId);
-            ViewBag.ParentCommentId = new SelectList(db.Comments, "Id", "AuthorId", comment.ParentCommentId);
+            //ViewBag.ParentCommentId = new SelectList(db.Comments, "Id", "AuthorId", comment.ParentCommentId);
             ViewBag.PostId = new SelectList(db.BlogEntries, "Id", "Title", comment.PostId);
             return View(comment);
         }
@@ -98,7 +89,7 @@ namespace Blog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,PostId,AuthorId,EditorId,Body,CreationDate,UpdatedDate,UpdateReason,ParentCommentId,MarkForDeletion")] Comment comment)
+        public ActionResult Edit([Bind(Include = "Id,PostId,AuthorId,EditorId,Body,CreationDate,UpdatedDate,UpdateReason,MarkForDeletion")] Comment comment)
         {
             if (ModelState.IsValid)
             {
@@ -107,8 +98,7 @@ namespace Blog.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.AuthorId = new SelectList(db.Users, "Id", "FirstName", comment.AuthorId);
-            ViewBag.EditorId = new SelectList(db.Users, "Id", "FirstName", comment.EditorId);
-            ViewBag.ParentCommentId = new SelectList(db.Comments, "Id", "AuthorId", comment.ParentCommentId);
+            //ViewBag.ParentCommentId = new SelectList(db.Comments, "Id", "AuthorId", comment.ParentCommentId);
             ViewBag.PostId = new SelectList(db.BlogEntries, "Id", "Title", comment.PostId);
             return View(comment);
         }

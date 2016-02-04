@@ -1,22 +1,99 @@
-﻿@*@using Microsoft.AspNet.Identity
-@if (Request.IsAuthenticated)
-{
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-    {
-    @Html.AntiForgeryToken()
+﻿@using Blog.Models
+@model LoginViewModel
 
+<a class="btn btn-block btn-social btn-microsoft">
+    <span class="fa fa-microsoft" ></span>Microsoft
+</a>
+@if (!User.Identity.IsAuthenticated)
+{
     <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+        <li class="dropdown" id="tabDropDown">
+            <a class="btn btn-default dropdown-toggle loginButton" href="#" data-toggle="dropdown">Log In <strong class="caret"></strong></a>
+            <div class="dropdown-menu" id="loginTab">
+                <form>
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#login" data-toggle="tab" aria-expanded="true">Log in</a></li>
+                        <li class=""><a href="#admin" data-toggle="tab" aria-expanded="false">Admin</a></li>
+                    </ul>
+                </form>
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane active in" id="login">
+                        <div class="col-md-4">
+                            @using (Html.BeginForm("ExternalLogin", "Account"))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div id="socialLoginList">
+                                    <p>
+                                        @using Microsoft.Owin.Security
+                                        @{
+                                            var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
+                                            foreach (Microsoft.Owin.Security.AuthenticationDescription p in loginProviders)
+                                            {
+                                                @*<button class="btn btn-block btn-social btn-twitter">
+                                                    <span class="fa fa-twitter" ></span> Sign in with Twitter
+                                                </button>*@
+                                                <a class="btn btn-block btn-social btn-@p.AuthenticationType.ToLower()">
+                                                    <span class="fa fa-@p.AuthenticationType.ToLower()"id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account"></span>@p.AuthenticationType
+                                                </a>
+                                                @*<button type="submit" class="fb-login-button" data-size="large" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>*@
+                                            }
+                                        }
+                                    </p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="admin">
+                        <div class="form-group">
+                            <section id="loginForm">
+                                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "ng-pristine ng-valid", role = "form" }))
+                                 {
+                                    <br />
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+                                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="checkbox" id="logiCheckBox">
+                                            @Html.CheckBoxFor(m => m.RememberMe)
+                                            @Html.LabelFor(m => m.RememberMe)
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="loginSubmit">
+                                        <div class="col-sm-offset-4 col-sm-8">
+                                            <input type="submit" value="Log in" class="btn btn-default" />
+                                        </div>
+                                    </div>
+                                }
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
     </ul>
-    }
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
-}*@
+
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+    {
+        if (User.IsInRole("Admin"))
+        {
+            <div class="nav navbar-nav navbar-left">
+                <button class="btn btn-default loginButton" id="createPost">@Html.ActionLink("Create Post", "Create", "BlogEntries")</button>
+            </div>
+        }
+        <div class="nav navbar-nav navbar-right">
+            @Html.AntiForgeryToken()
+            <button class="btn btn-default loginButton" id="loggedInAs" @Html.ActionLink("Logged in as " + User.Identity.Name, "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })></button>
+            <button class="btn btn-default loginButton" id="logOut" href="javascript:document.getElementById('logoutForm').submit()" role="button">Log out</button>
+        </div>
+    }
+}

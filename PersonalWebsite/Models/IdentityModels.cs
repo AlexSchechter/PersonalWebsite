@@ -25,6 +25,8 @@ namespace Blog.Models
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
+            //: base("AzureConnection", throwIfV1Schema: false)
+            
         {
         }
 
