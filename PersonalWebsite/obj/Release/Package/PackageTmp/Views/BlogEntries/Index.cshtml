@@ -1,0 +1,127 @@
+﻿@model IEnumerable<Blog.Models.BlogEntry>
+
+@*@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Body)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MediaURL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Published)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Body)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MediaURL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Published)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>*@
+
+
+<div class="blog-posts">
+    @if(User.IsInRole("Admin"))
+    {
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    }
+    @foreach (var item in Model)
+    {
+        <div class="blog-post">
+            <div class="row">
+                <div class="col-md-8">
+                    <h3 class="title-post"><a href="blog_single.html"><i class="fa fa-picture-o"></i> @Html.DisplayFor(modelItem => item.Title)</a></h3>
+                </div>
+                <div class="col-md-4">
+                    <div class="blog-date">
+                        @Html.DisplayFor(modelItem => item.CreationDate)
+                    </div>
+                </div>
+            </div>
+            <div class="body-post">
+                <div class="imgWrapper">
+                    <img src="~/assets/images/bugatti.jpg" class="img-full blog-img" alt="" />
+                </div>
+                @Html.DisplayFor(modelItem => item.Body)
+                    <a href="blog_single.html" class="btn btn-flat style2">Continue Reading...</a>
+                <div class="love-post-btn">
+                    <a href="#"><span><i class="fa fa-heart"></i> 3</span></a>
+                </div>
+            </div>
+        </div>
+  
+    }
+</div>
+@*<div class="blog-post">
+    <div class="row">
+        <div class="col-md-8">
+            <h3 class="title-post"><a href="blog_single.html"><i class="fa fa-video-camera"></i> An Example Post With A Video</a></h3>
+        </div>
+        <div class="col-md-4">
+            <div class="blog-date">
+                3 Mar, 2014
+            </div>
+        </div>
+    </div>
+    <div class="body-post">
+        <div class="imgWrapper">
+            <img src="assets/images/blog/blog.png" class="img-full blog-img" alt="" />
+            <div class="playbtn">
+                <a href="https://vimeo.com/45830194" class="popup-iframe"><span class="fa-4x fa fa-play"></span></a>
+            </div>
+        </div>
+        <p>Designer focuses on writing clean. by <strong>UnKown</strong></p>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+        <p>
+            <a href="blog_single.html" class="btn btn-flat style2">Continue Reading...</a>
+        </p>
+        <div class="love-post-btn">
+            <a href="#"><span><i class="fa fa-heart"></i> 10</span></a>
+        </div>
+    </div>
+</div>*@

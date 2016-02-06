@@ -1,0 +1,24 @@
+﻿body {
+  font-family:Arial,Helvettica,sans-serif;
+  background-color:yellow;
+}
+
+
+h1 {
+  font-size:2em;
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
+input{
+	width:50px;
+	
+}
+
+button{
+	border-radius:8px;
+	background-color:red;
+	width:100px;
+	color:white;
+}
+

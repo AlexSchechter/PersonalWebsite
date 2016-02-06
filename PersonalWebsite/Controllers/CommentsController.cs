@@ -13,10 +13,11 @@ namespace Blog.Controllers
 
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        public JsonResult GetComments()
+        public JsonResult GetComments(int blogEntryId)
         {
-            var temp = db.Comments.ToList().OrderByDescending(p => p.CreationDate);
-            return Json(temp, JsonRequestBehavior.AllowGet);
+            var result = db.Comments.Where(c => c.PostId == blogEntryId).ToList().OrderByDescending(c => c.CreationDate);
+            //var temp = db.Comments.ToList().OrderByDescending(p => p.CreationDate);
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Comments
