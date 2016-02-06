@@ -1,9 +1,7 @@
 ﻿@using Blog.Models
 @model LoginViewModel
 
-<a class="btn btn-block btn-social btn-microsoft">
-    <span class="fa fa-microsoft" ></span>Microsoft
-</a>
+
 @if (!User.Identity.IsAuthenticated)
 {
     <ul class="nav navbar-nav navbar-right">
@@ -29,12 +27,9 @@
                                             var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
                                             foreach (Microsoft.Owin.Security.AuthenticationDescription p in loginProviders)
                                             {
-                                                @*<button class="btn btn-block btn-social btn-twitter">
-                                                    <span class="fa fa-twitter" ></span> Sign in with Twitter
-                                                </button>*@
-                                                <a class="btn btn-block btn-social btn-@p.AuthenticationType.ToLower()">
-                                                    <span class="fa fa-@p.AuthenticationType.ToLower()"id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account"></span>@p.AuthenticationType
-                                                </a>
+                                                <button type="submit" class="btn btn-block btn-social btn-@p.AuthenticationType.ToLower()" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">
+                                                    <span class="fa fa-@p.AuthenticationType.ToLower()"></span>@p.AuthenticationType
+                                                </button>
                                                 @*<button type="submit" class="fb-login-button" data-size="large" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>*@
                                             }
                                         }
@@ -86,9 +81,7 @@ else
     {
         if (User.IsInRole("Admin"))
         {
-            <div class="nav navbar-nav navbar-left">
-                <button class="btn btn-default loginButton" id="createPost">@Html.ActionLink("Create Post", "Create", "BlogEntries")</button>
-            </div>
+            <button class="btn btn-default loginButton" id="createPost">@Html.ActionLink("Create Post", "Create", "BlogEntries")</button>
         }
         <div class="nav navbar-nav navbar-right">
             @Html.AntiForgeryToken()

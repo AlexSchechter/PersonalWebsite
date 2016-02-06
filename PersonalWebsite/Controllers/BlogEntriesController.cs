@@ -18,14 +18,24 @@ namespace Blog.Controllers
 
         public JsonResult GetBlogEntries()
         {
-            var temp = db.BlogEntries.Include(p => p.Comments).ToList().OrderByDescending(p => p.CreationDate);
-            return Json(temp, JsonRequestBehavior.AllowGet);
+            var result = db.BlogEntries.Include(b => b.Comments).ToList().OrderByDescending(b => b.CreationDate);
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult GetBlogEntry(int id)
         {
             
             return Json(db.BlogEntries.Find(id), JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult SearchBlog(string searchStr)
+        {
+            var result = db.BlogEntries.Include(b => b.Comments).ToList().Where(b => b.Title.Contains(searchStr) || b.Body.Contains(searchStr))
+                .OrderByDescending(b => b.CreationDate);
+            /*|| b.Comments.Any(c => c.Body.Contains(searchStr))
+                || b.Comments.Any(c => c.Author.UserName.Contains(searchStr))*/
+            return Json(result, JsonRequestBehavior.AllowGet);
+            //return RedirectToAction("Index", new { post = result, page, size, count });
         }
 
         // GET: BlogEntries

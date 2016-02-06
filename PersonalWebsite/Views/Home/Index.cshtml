@@ -1160,25 +1160,32 @@ $(function(){
         Start Blog tab content section
         ===================================-->
         <div id='blog' class="tab-pane fade">
-            <div class="body-content">
-                @Html.Partial("_LoginPartial", new LoginViewModel())
-               
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h2 class="title with-icon" id="blogTitle"><span class="fa fa-comment-o icn-title"></span> My Journey to Becoming a Coder</h2>
-                    </div>
-                </div>
-               
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-1">
+            <div id="blogContent" ng-app="app">
+                <div ng-controller="appController">                 
+                    <div class="body-content">
+                        <div class="navbar-form navbar-left" role="search">                         
+                            <div class="form-group">
+                                <input type="text" placeholder="Search string" ng-model="searchStr" id="searchStr" class="form-control" />
+                                <button type="submit" ng-click="searchBlog()" class="btn btn-default loginButton">Search Blogs</button>
+                            </div>
+                            
+                        </div>
+                        @Html.Partial("_LoginPartial", new LoginViewModel())
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h2 class="title with-icon" id="blogTitle"><span class="fa fa-comment-o icn-title"></span> My Journey to Becoming a Coder</h2>
+                            </div>
+                        </div>
 
-                        <!-- =========
-                        Start blog post section
-                        ===================================-->
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
 
-                        <div class="blog-posts">
-                            <div id="blogContent" ng-app="app">
-                                <div ng-controller="appController">
+                                <!-- =========
+                            Start blog post section
+                            ===================================-->
+
+                                <div class="blog-posts">
+
                                     <div ng-if="blogEntryPick != null">
                                         <div class="blog-post">
                                             <div class="row">
@@ -1207,62 +1214,44 @@ $(function(){
                                                     }
                                                 </p>
                                             </div>
-                                            <h3 class="title with-icon"><span class="fa  fa-comments-o icn-title"></span> 5 Comments</h3>
-                                            <div class="box-block box-comments">
+                                        </div>
+                                        <h3 class="title with-icon"><span class="fa  fa-comments-o icn-title"></span> {{comments.length}} Comments</h3>
+                                        <div class="box-block box-comments">
+                                            <div ng-repeat="comment in comments">
                                                 <div class="media">
                                                     <a class="pull-left" href="#">
-                                                        <img class="media-object img-circle" data-src="holder.js/64x64" alt="64x64" style="width: 64px; height: 64px;" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIj48L3JlY3Q+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+">
+                                                        <img class="media-object img-circle" data-src="holder.js/64x64" alt="64x64" style="width: 64px; height: 64px;" src="~/assets/images/dummyavatar.jpg" /> @*src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIj48L3JlY3Q+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+">*@
                                                     </a>
                                                     <div class="media-body">
-                                                        <h4 class="media-heading">Timur Arturo</h4>
-                                                        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                                                        <p><a class="btn btn-xs btn-flat style2">Replay &nbsp; ↓</a></p>
+                                                        <h4 class="media-heading">{{comment.Title}}</h4>
+                                                        <div id="commentBody">{{comment.Body}} </div> <div id="creationDate">Created: {{getPrettyDateFormat(comment.CreationDate)}} </div>
+                                                        <p><a href="/#blogTitle" class="btn btn-xs btn-flat style2">Top &nbsp; ↑</a></p>
                                                     </div>
                                                 </div>
-                                                <div class="media">
-                                                    <a class="pull-left" href="#">
-                                                        <img class="media-object img-circle" data-src="holder.js/64x64" alt="64x64" style="width: 64px; height: 64px;" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIj48L3JlY3Q+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+">
-                                                    </a>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading">Leszek Grey</h4>
-                                                        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                                                        <p><a class="btn btn-xs btn-flat style2">Replay &nbsp; ↓</a></p>
-                                                        <div class="media">
-                                                            <a class="pull-left" href="#">
-                                                                <img class="media-object img-circle" data-src="holder.js/64x64" alt="64x64" style="width: 64px; height: 64px;" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIj48L3JlY3Q+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+">
-                                                            </a>
-                                                            <div class="media-body">
-                                                                <h4 class="media-heading">Vilmos Dong</h4>
-                                                                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                                                                <p><a class="btn btn-xs btn-flat style2">Replay &nbsp; ↓</a></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <h3 class="title with-icon"><span class="fa  fa-comment-o icn-title"></span> Drop a Comment</h3>
-                                            @*@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "ng-pristine ng-valid", role = "form" }))*@
-                                            <div class="box-block">
-                                                @using (Html.BeginForm("Create", "Comments", FormMethod.Post, new { @class = "ng-pristine ng-valid", role = "form" }))
-                                                {                            
-                                                    @Html.AntiForgeryToken()
-                                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                                    <input data-val="true" id="BlogEntryId" name="PostId" type="hidden" value="{{blogEntryPick.Id}}" />
-                                                   
-                                                    <div class="form-group">
-                                                        @Html.TextBoxFor(m => m.Title, new { @class = "form-control", @placeholder = "Title", @id = "WebSiteForm" })
-                                                        @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
-                                                    </div>
-                                                    <div class="form-group">
-                                                        @Html.TextAreaFor(m => m.Body, new { @class = "form-control", @placeholder = "Title", @id = "MessageForm" })
-                                                        @Html.ValidationMessageFor(m => m.Body, "", new { @class = "text-danger" })
-                                                    </div>
-                                                    <button type="submit" class="btn btn-flat btn-lg">Post A Comment</button>
-                                                }
                                             </div>
                                         </div>
-                                    </div>                            
+                                        <h3 class="title with-icon"><span class="fa  fa-comment-o icn-title"></span> Drop a Comment</h3>
+                                        @*@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "ng-pristine ng-valid", role = "form" }))*@
+                                        <div class="box-block">
+                                            @using (Html.BeginForm("Create", "Comments", FormMethod.Post, new { @class = "ng-pristine ng-valid", role = "form", ng_submit = "getCommentsWithDelay()", id = "commentForm" }))
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                                <input data-val="true" id="BlogEntryId" name="PostId" type="hidden" value="{{blogEntryPick.Id}}" />
+
+                                                <div class="form-group">
+                                                    @Html.TextBoxFor(m => m.Title, new { @class = "form-control", @placeholder = "{{title}}", @id = "WebSiteForm" })
+                                                    @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.TextAreaFor(m => m.Body, new { @class = "form-control", @placeholder = "{{body}}", @id = "MessageForm" })
+                                                    @Html.ValidationMessageFor(m => m.Body, "", new { @class = "text-danger" })
+                                                </div>
+                                                <button type="submit" class="btn btn-flat btn-lg">Post A Comment</button>
+                                            }
+                                        </div>
+                                    </div>
+
                                     <div ng-if="blogEntryPick == null">
                                         <div ng-repeat="blogEntry in blogEntries">
                                             <div class="blog-post">
@@ -1297,18 +1286,17 @@ $(function(){
                                                 </div>
                                             </div>
                                         </div>
-                                        @*<a href="blog_list.html" class="btn btn-flat btn-lg btn-block">View All Post</a>*@
                                     </div>
                                 </div>
                             </div>
                         </div>
-                                <!-- =========
-            End blog post section
-            ===================================-->
+                        <!-- =========
+                    End blog post section
+                    ===================================-->
 
                     </div>
                 </div>
-                  
+
             </div>
         </div>
         <!-- =========
@@ -1405,3 +1393,8 @@ Start Footer section
 <!-- =========
 End Footer section
 ===================================-->
+@*loop through number of results
+if (@ViewBag.searchStr != null){
+var word = searchStr;
+$(".blogtitle"").innerHtml.replace(word, "<span class='highlight'>"+word+"</span>")
+}*@

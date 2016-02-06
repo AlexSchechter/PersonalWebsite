@@ -10,7 +10,14 @@ namespace Blog.Controllers
     [RequireHttps]
     public class CommentsController : Controller
     {
+
         private ApplicationDbContext db = new ApplicationDbContext();
+
+        public JsonResult GetComments()
+        {
+            var temp = db.Comments.ToList().OrderByDescending(p => p.CreationDate);
+            return Json(temp, JsonRequestBehavior.AllowGet);
+        }
 
         // GET: Comments
         public ActionResult Index()
@@ -56,7 +63,8 @@ namespace Blog.Controllers
                 comment.AuthorId = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name).Id;
                 db.Comments.Add(comment);
                 db.SaveChanges();
-                return RedirectToAction("Index", "Home"); //Redirect()
+                var test = Redirect(Url.Action("Index", "Home") + "/#blog");
+                return test;
             }
             return View(comment);
         }

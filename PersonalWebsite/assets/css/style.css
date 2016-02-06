@@ -1,20 +1,45 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
 /*added by Alex Schechter*/
 
-fa fa-microsoft
+.navbar-form.navbar-left .form-group{
+    margin-top:-8px;
+    margin-left:-15px;
+}
+#searchStr{
+    border-width:1px;
+    margin-bottom:10px;
+    margin-right:-5px;
+    height:52px;
+    border-color:#ccc;
+}
+#commentBody{
+    float:left;
+}
+#creationDate{
+    font-size:small;
+    font-style:italic;
+}
+.fa-microsoft:before {
+  content: "\f17a";
+}
 .btn.btn-block.btn-social{
-    width:130px;
+    margin-top:15px;
+    margin-bottom:15px;
+     width:130px;
 }
 #logOut{
     margin-right:12px;
     margin-left:-5px;
     margin-bottom:10px;
+    height:52px
 }
 #loggedInAs{
     margin-bottom:10px;
+    height:52px;
 }
 #createPost{
     margin-bottom:20px;
+    margin-left:20px;
 }
 #postAComment{
     width:auto;
@@ -28,7 +53,7 @@ fa fa-microsoft
     margin-bottom:10px;
 }
 #blogTitle{
-    margin-top:0px;
+   
 }
 #loginTab{
     padding:15px;
@@ -844,8 +869,9 @@ Main Section Section
   color:#7F7F7F;
 }
 #blog .box-comments {
-  margin-bottom:60px;
-  margin-top:40px;
+  margin-bottom: 60px;
+  margin-top: 40px;
+  //font-size:medium;
 }
 #blog .box-comments .media-heading {
   font-weight:700;
@@ -946,6 +972,9 @@ Main Section Section
   margin-bottom:30px;
   margin-top:15px;
 }
+.box-block.box-block .media {
+  margin-top:15px;
+}
 @media (max-width:900px) {
   .mini-desc {
     text-align:center !important;
@@ -984,6 +1013,7 @@ Main Section Section
   box-shadow:0 5px 0 #a63838;
   position:relative;
   margin-bottom:5px;
+  width:auto;
 }
 .btn-flat:hover,
 .btn-flat:focus,
