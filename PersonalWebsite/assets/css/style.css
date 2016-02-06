@@ -8,9 +8,12 @@
 #searchStr{
     border-width:1px;
     margin-bottom:10px;
-    margin-right:-5px;
+    margin-left:-5px;
     height:52px;
     border-color:#ccc;
+}
+#logInButton{
+    width:145px;
 }
 #commentBody{
     float:left;
@@ -49,8 +52,9 @@
     color:#2C92AC;
     width:auto;
     padding:15px;
-    border-width:1.11111px;
+    border-width:1px;
     margin-bottom:10px;
+    height:52px;
 }
 #blogTitle{
    

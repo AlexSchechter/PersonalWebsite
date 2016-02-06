@@ -1165,15 +1165,19 @@ $(function(){
                     <div class="body-content">
                         <div class="navbar-form navbar-left" role="search">                         
                             <div class="form-group">
-                                <input type="text" placeholder="Search string" ng-model="searchStr" id="searchStr" class="form-control" />
-                                <button type="submit" ng-click="searchBlog()" class="btn btn-default loginButton">Search Blogs</button>
-                            </div>
-                            
+                                <button type="submit" ng-click="searchBlog()" class="btn btn-default loginButton" id="logInButton">{{displaySearch}}</button> 
+                                <input type="text" placeholder="Search string" ng-model="searchStr" id="searchStr" class="form-control" ng-show="searchBlogOn"/>                                                  
+                            </div>                           
                         </div>
                         @Html.Partial("_LoginPartial", new LoginViewModel())
                         <div class="row">
                             <div class="col-sm-12">
-                                <h2 class="title with-icon" id="blogTitle"><span class="fa fa-comment-o icn-title"></span> My Journey to Becoming a Coder</h2>
+                                <div ng-if="searchBlogOn">
+                                    <h2 class="title with-icon" id="blogTitle"><span class="fa fa-comment-o icn-title"></span> My Journey to Becoming a Coder</h2>
+                                </div>
+                                <div ng-if="!searchBlogOn">
+                                    <h2 class="title" id="blogTitle"> Blog Posts that Containt the Search String "{{searchInput}}" </h2>
+                                </div>
                             </div>
                         </div>
 
@@ -1251,7 +1255,6 @@ $(function(){
                                             }
                                         </div>
                                     </div>
-
                                     <div ng-if="blogEntryPick == null">
                                         <div ng-repeat="blogEntry in blogEntries">
                                             <div class="blog-post">

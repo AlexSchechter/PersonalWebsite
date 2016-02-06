@@ -7,10 +7,15 @@
     $scope.title = "Enter Title";
     $scope.body = "Enter Body"
     $scope.searchStr = null;
+    $scope.searchBlogOn = true;
+    $scope.displaySearch = "Search Blog";
+    $scope.searchInput = "";
 
-    $http.get('../BlogEntries/GetBlogEntries').then(function (response) {
-        $scope.blogEntries = response.data;
-    });
+    $scope.getBlogEntries = function () {
+        $http.get('../BlogEntries/GetBlogEntries').then(function (response) {
+            $scope.blogEntries = response.data;
+        });
+    }
 
     $scope.goList = function () {
         $scope.blogEntryPick = null;
@@ -49,12 +54,25 @@
         $scope.blogBody = $sce.trustAsHtml(myHTML);
     }
 
+
     $scope.getComments();
 
+    $scope.getBlogEntries();
+
     $scope.searchBlog = function () {
-        var options = { params: {searchStr : $scope.searchStr } };
-        $http.get('../BlogEntries/SearchBlog', options).then(function (response) {
-            $scope.blogEntries = response.data;
-        });
+        if ($scope.searchBlogOn) {
+            var options = { params: { searchStr: $scope.searchStr } };
+            $http.get('../BlogEntries/SearchBlog', options).then(function (response) {
+                $scope.blogEntries = response.data;
+            });
+            $scope.displaySearch = "Display All Blogs"
+            $scope.searchInput = document.getElementById('searchStr').value;
+        }
+        else {
+            $scope.getBlogEntries();
+            $scope.displaySearch = "Search Blog";
+            document.getElementById('searchStr').value = null;
+        }
+        $scope.searchBlogOn = !$scope.searchBlogOn;
     }
 }])
