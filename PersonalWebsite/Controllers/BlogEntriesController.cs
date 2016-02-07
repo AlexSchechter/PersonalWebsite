@@ -30,8 +30,10 @@ namespace Blog.Controllers
 
         public JsonResult SearchBlog(string searchStr)
         {
-            var result = db.BlogEntries.Include(b => b.Comments).ToList().Where(b => b.Title.Contains(searchStr) || b.Body.Contains(searchStr))
-                .OrderByDescending(b => b.CreationDate);
+            var result = db.BlogEntries.Include(b => b.Comments).ToList().Where(b => b.Title.ToLower().Contains(searchStr.ToLower()) 
+                || b.Body.ToLower().Contains(searchStr.ToLower())).OrderByDescending(b => b.CreationDate);
+
+
             /*|| b.Comments.Any(c => c.Body.Contains(searchStr))
                 || b.Comments.Any(c => c.Author.UserName.Contains(searchStr))*/
             return Json(result, JsonRequestBehavior.AllowGet);

@@ -20,30 +20,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Editor.FirstName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Editor.FirstName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ParentComment.AuthorId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ParentComment.AuthorId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Post.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Post.Title)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.Body)
         </dt>
 
@@ -89,8 +65,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Delete" class="btn btn-flat btn-lg" />           
         </div>
+        @Html.ActionLink("Back to List", "Index")
     }
 </div>

@@ -1208,6 +1208,7 @@ $(function(){
                                                 <div ng-bind-html="blogBody"></div>
                                                 <p>
                                                     <a href="" class="btn btn-flat style2" ng-click="goList()">Back to list</a>
+                                                    <a href="/#blogTitle" class="btn btn-flat style2" id="goTop" >Top of post</a>
                                                     @if (User.IsInRole("Admin"))
                                                     {
                                                         <ul class="nav navbar-nav navbar-right">
@@ -1227,7 +1228,15 @@ $(function(){
                                                     </a>
                                                     <div class="media-body">
                                                         <h4 class="media-heading">{{comment.Title}}</h4>
-                                                        <div id="commentBody">{{comment.Body}} </div> <div id="creationDate">Created: {{getPrettyDateFormat(comment.CreationDate)}} </div>
+                                                        <div id="commentBody">{{comment.Body}}  &nbsp;</div> 
+                                                        <div id="authorInfo">Created: {{getPrettyDateFormat(comment.CreationDate)}} by {{comment.Author.Email}}</div>
+                                                        @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+                                                        {
+                                                            <ul class="nav navbar-nav navbar-right">
+                                                                <li><a href="{{'../Comments/Edit/' + comment.Id}}">Edit</a></li>
+                                                                <li><a href="{{'../Comments/Delete/' + comment.Id}}">Delete</a></li>
+                                                            </ul>
+                                                        }
                                                         <p><a href="/#blogTitle" class="btn btn-xs btn-flat style2">Top &nbsp; ↑</a></p>
                                                     </div>
                                                 </div>
@@ -1248,11 +1257,11 @@ $(function(){
                                                     <input data-val="true" id="BlogEntryId" name="PostId" type="hidden" value="{{blogEntryPick.Id}}" />
 
                                                     <div class="form-group">
-                                                        @Html.TextBoxFor(m => m.Title, new { @class = "form-control", @placeholder = "{{title}}", @id = "WebSiteForm" })
+                                                        @Html.TextBoxFor(m => m.Title, new { @class = "form-control", @placeholder = "{{commentTitle}}", @id = "WebSiteForm" })
                                                         @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
                                                     </div>
                                                     <div class="form-group">
-                                                        @Html.TextAreaFor(m => m.Body, new { @class = "form-control", @placeholder = "{{body}}", @id = "MessageForm" })
+                                                        @Html.TextAreaFor(m => m.Body, new { @class = "form-control", @placeholder = "{{commentBody}}", @id = "MessageForm" })
                                                         @Html.ValidationMessageFor(m => m.Body, "", new { @class = "text-danger" })
                                                     </div>
                                                     <button type="submit" class="btn btn-flat btn-lg">Post A Comment</button>
@@ -1289,7 +1298,7 @@ $(function(){
                                                         </div>
                                                     </div>
                                                     <div class="love-post-btn">
-                                                        <a href="#"><span><i class="fa fa-heart"></i></span></a>
+                                                        <div><span><i class="fa fa-heart"></i></span></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1301,10 +1310,8 @@ $(function(){
                         <!-- =========
                     End blog post section
                     ===================================-->
-
                     </div>
                 </div>
-
             </div>
         </div>
         <!-- =========

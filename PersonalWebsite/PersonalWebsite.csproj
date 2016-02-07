@@ -252,6 +252,7 @@
     <Content Include="assets\images\blog\blog.png" />
     <Content Include="assets\images\bugatti.jpg" />
     <Content Include="assets\images\client\client.png" />
+    <Content Include="assets\images\dummyavatar.jpg" />
     <Content Include="assets\images\factorial.png" />
     <Content Include="assets\images\factorization.png" />
     <Content Include="assets\images\faicon.png" />
