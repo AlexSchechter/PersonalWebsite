@@ -83,10 +83,10 @@ namespace Blog.Controllers
             {
                 return HttpNotFound();
             }
-            if (User.Identity.Name != comment.Author.UserName)
-            {
-                return RedirectToAction("Index");
-            }
+            //if (User.Identity.Name != comment.Author.UserName)
+            //{
+            //    return RedirectToAction("Index");
+            //}
             ViewBag.AuthorId = new SelectList(db.Users, "Id", "FirstName", comment.AuthorId);
             //ViewBag.ParentCommentId = new SelectList(db.Comments, "Id", "AuthorId", comment.ParentCommentId);
             ViewBag.PostId = new SelectList(db.BlogEntries, "Id", "Title", comment.PostId);
