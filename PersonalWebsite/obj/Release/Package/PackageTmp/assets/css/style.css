@@ -15,11 +15,13 @@
 #logInButton{
     width:145px;
 }
-#commentBody{
-    float:left;
+#goTop{
+    float: right;
 }
-#creationDate{
-    font-size:small;
+#commentBody{
+}
+#authorInfo{
+    font-size:x-small;
     font-style:italic;
 }
 .fa-microsoft:before {

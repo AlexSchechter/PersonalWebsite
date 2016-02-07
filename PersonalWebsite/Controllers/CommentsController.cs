@@ -82,13 +82,8 @@ namespace Blog.Controllers
             if (comment == null)
             {
                 return HttpNotFound();
-            }
-            //if (User.Identity.Name != comment.Author.UserName)
-            //{
-            //    return RedirectToAction("Index");
-            //}
+            }         
             ViewBag.AuthorId = new SelectList(db.Users, "Id", "FirstName", comment.AuthorId);
-            //ViewBag.ParentCommentId = new SelectList(db.Comments, "Id", "AuthorId", comment.ParentCommentId);
             ViewBag.PostId = new SelectList(db.BlogEntries, "Id", "Title", comment.PostId);
             return View(comment);
         }
@@ -99,13 +94,14 @@ namespace Blog.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin, Moderator")]
-        public ActionResult Edit([Bind(Include = "Id,PostId,AuthorId,EditorId,Body,CreationDate,UpdatedDate,UpdateReason,MarkForDeletion")] Comment comment)
+        public ActionResult Edit([Bind(Include = "Id,PostId,AuthorId,Title,Body,CreationDate,UpdatedDate,UpdateReason,MarkForDeletion,Author")] Comment comment)
         {
             if (ModelState.IsValid)
             {
+                comment.UpdatedDate = new DateTimeOffset(DateTime.Now);
                 db.Entry(comment).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
             ViewBag.AuthorId = new SelectList(db.Users, "Id", "FirstName", comment.AuthorId);
             //ViewBag.ParentCommentId = new SelectList(db.Comments, "Id", "AuthorId", comment.ParentCommentId);

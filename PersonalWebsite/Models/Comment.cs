@@ -19,12 +19,7 @@ namespace Blog.Models
         public DateTimeOffset CreationDate { get; set; }
         public DateTimeOffset? UpdatedDate { get; set; }
         public string UpdateReason { get; set; }
-        //public int? ParentCommentId { get; set; }
         public bool MarkForDeletion { get; set; } 
-        //public virtual BlogEntry Post { get; set; } 
         public virtual ApplicationUser Author { get; set; }
-        //public virtual Comment ParentComment { get; set; }
-
-        //public virtual ICollection<Comment> Comments { get; set; } 
     }
 }

@@ -96,3 +96,8 @@ C:\Coding\PersonalWebsite\PersonalWebsite\bin\Microsoft.Owin.Security.MicrosoftA
 C:\Coding\PersonalWebsite\PersonalWebsite\obj\Release\PersonalWebsite.csprojResolveAssemblyReference.cache
 C:\Coding\PersonalWebsite\PersonalWebsite\obj\Release\Blog.dll
 C:\Coding\PersonalWebsite\PersonalWebsite\obj\Release\Blog.pdb
+C:\Coding\PersonalWebsite\PersonalWebsite\bin\SendGrid.dll
+C:\Coding\PersonalWebsite\PersonalWebsite\bin\SendGrid.SmtpApi.dll
+C:\Coding\PersonalWebsite\PersonalWebsite\bin\SendGridMail.dll
+C:\Coding\PersonalWebsite\PersonalWebsite\bin\System.Net.Http.Formatting.dll
+C:\Coding\PersonalWebsite\PersonalWebsite\bin\System.Net.Http.Formatting.xml

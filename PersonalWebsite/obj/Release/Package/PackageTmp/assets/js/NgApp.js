@@ -4,8 +4,8 @@
     $scope.blogEntryID = 0;
     $scope.blogBody = null;
     $scope.comments = null;
-    $scope.title = "Enter Title";
-    $scope.body = "Enter Body"
+    $scope.commentTitle = "Enter Comment Title";
+    $scope.commentBody = "Enter Comment Body";
     $scope.searchStr = null;
     $scope.searchBlogOn = true;
     $scope.displaySearch = "Search Blog";
@@ -20,6 +20,17 @@
     $scope.goList = function () {
         $scope.blogEntryPick = null;
     }
+
+    $scope.getBlogEntry = function (id) {
+        var options = { params: { id: id } }
+        $http.get('../BlogEntries/GetBlogEntry', options).then(function (response) {
+            $scope.blogEntryPick = response.data;
+            $scope.convertHTML($scope.blogEntryPick.Body);
+        });
+        $scope.commentTitle = "Enter Comment Title";
+        $scope.commentBody = "Enter Comment Body";
+        $scope.getComments(id);
+    }
  
     $scope.getComments = function (blogEntryId) {
         var options = { params: { blogEntryId: blogEntryId } }
@@ -32,19 +43,10 @@
         $timeout(function () {
             $scope.getComments(blogEntryId);
             document.getElementById("commentForm").reset();
-            $scope.title = "Your comment has been saved and is now displayed at the top of the comments section";
-            $scope.body = "Enter another comment here";
+            $scope.commentTitle = "Your comment has been saved and is now displayed at the top of the comments section";
+            $scope.commentBody = "Enter another comment here";
         }, 500);
     }
-    $scope.getBlogEntry = function (id) {
-        var options = { params: { id: id }}
-        $http.get('../BlogEntries/GetBlogEntry', options).then(function (response){
-            $scope.blogEntryPick = response.data;
-            $scope.convertHTML($scope.blogEntryPick.Body);
-        });
-        $scope.getComments(id);
-    }
-
 
     $scope.getPrettyDateFormat = function (rawDate) {
         var myDate = new Date(parseInt(rawDate.substr(6)));
