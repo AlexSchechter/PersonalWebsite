@@ -94,7 +94,7 @@ namespace Blog.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin, Moderator")]
-        public ActionResult Edit([Bind(Include = "Id,PostId,AuthorId,Title,Body,CreationDate,UpdatedDate,UpdateReason,MarkForDeletion,Author")] Comment comment)
+        public ActionResult Edit([Bind(Include = "Id,PostId,AuthorId,Title,Body,CreationDate,UpdatedDate,UpdateReason,MarkForDeletion")] Comment comment)
         {
             if (ModelState.IsValid)
             {

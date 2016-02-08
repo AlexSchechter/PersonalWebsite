@@ -1229,7 +1229,7 @@ $(function(){
                                                     <div class="media-body">
                                                         <h4 class="media-heading">{{comment.Title}}</h4>
                                                         <div id="commentBody">{{comment.Body}}  &nbsp;</div> 
-                                                        <div id="authorInfo">Created: {{getPrettyDateFormat(comment.CreationDate)}} by {{comment.Author.Email}}</div>
+                                                        <div id="authorInfo">Created: {{getPrettyDateFormat(comment.CreationDate)}} by {{comment.Author.UserName}}</div>
                                                         @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
                                                         {
                                                             <ul class="nav navbar-nav navbar-right">
