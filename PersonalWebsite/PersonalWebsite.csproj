@@ -268,6 +268,8 @@
     <Content Include="assets\images\blog\blog.png" />
     <Content Include="assets\images\bugatti.jpg" />
     <Content Include="assets\images\client\client.png" />
+    <Content Include="assets\images\CoderFoundryjpg.jpg" />
+    <Content Include="assets\images\download.png" />
     <Content Include="assets\images\dummyavatar.jpg" />
     <Content Include="assets\images\factorial.png" />
     <Content Include="assets\images\factorization.png" />
@@ -280,6 +282,7 @@
     <Content Include="assets\images\icon.png" />
     <Content Include="assets\images\loader.gif" />
     <Content Include="assets\images\longestWord.jpg" />
+    <Content Include="assets\images\lovebugs.jpg" />
     <Content Include="assets\images\marker.png" />
     <Content Include="assets\images\palindrome.png" />
     <Content Include="assets\images\point.png" />
@@ -614,6 +617,12 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_BlogPartial.cshtml" />
+    <Content Include="Views\Shared\_ContactPartial.cshtml" />
+    <Content Include="Views\Shared\_PortfolioPartial.cshtml" />
+    <Content Include="Views\Shared\_ResumePartial.cshtml" />
+    <Content Include="Views\Shared\_AboutPartial.cshtml" />
+    <Content Include="Views\Shared\_PortraitPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

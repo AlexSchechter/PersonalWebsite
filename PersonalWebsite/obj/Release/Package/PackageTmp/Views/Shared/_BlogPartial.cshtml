@@ -1,0 +1,154 @@
+﻿@using Blog.Models
+@model Comment
+
+<div id='blog' class="tab-pane fade">
+    <div id="blogContent" ng-app="app">
+        <div ng-controller="appController">
+            <div class="body-content">
+                @Html.Partial("_LoginPartial", new LoginViewModel())
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div ng-if="searchBlogOn">
+                            <h2 class="title with-icon" id="blogTitle"><span class="fa fa-comment-o icn-title"></span> My Journey to Becoming a Coder</h2>
+                        </div>
+                        <div ng-if="!searchBlogOn">
+                            <h2 class="title" id="blogTitle"> Blog Posts that Containt the Search String "{{searchInput}}" </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+
+                        <!-- =========
+                        Start blog post section
+                        ===================================-->
+
+                        <div class="blog-posts">
+                            <div ng-if="blogEntryPick != null">
+                                <div class="blog-post">
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <h3 class="title-post"><i class="fa fa-picture-o"></i> {{blogEntryPick.Title}}</h3>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="blog-date">
+                                                {{getPrettyDateFormat(blogEntryPick.CreationDate)}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="body-post">
+                                        <div class="imgWrapper">
+                                            <img ng-src="{{blogEntryPick.MediaURL}}" class="img-full blog-img" alt="Blog Post Picture" />
+                                        </div>
+                                        <div ng-bind-html="blogBody" id="individualBlog"></div>
+                                        <p>
+                                            <a href="" class="btn btn-flat style2" ng-click="goList()">Back to list</a>
+                                            <a href="/#blogTitle" class="btn btn-flat style2" id="goTop">Top of post</a>
+                                            @if (User.IsInRole("Admin"))
+                                            {
+                                                <ul class="nav navbar-nav navbar-right">
+                                                    <li><a href="{{'../BlogEntries/Edit/' + blogEntryPick.Id}}">Edit</a></li>
+                                                    <li><a href="{{'../BlogEntries/Delete/' + blogEntryPick.Id}}">Delete</a></li>
+                                                </ul>
+                                            }
+                                        </p>
+                                    </div>
+                                </div>
+                                <h3 class="title with-icon"><span class="fa  fa-comments-o icn-title"></span> {{comments.length}} Comments</h3>
+                                <div class="box-block box-comments">
+                                    <div ng-repeat="comment in comments">
+                                        <div class="media">
+                                            <a class="pull-left" href="#">
+                                                <img class="media-object img-circle" data-src="holder.js/64x64" alt="64x64" style="width: 64px; height: 64px;" src="~/assets/images/dummyavatar.jpg" /> @*src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIj48L3JlY3Q+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+">*@
+                                            </a>
+                                            <div class="media-body">
+                                                <h4 class="media-heading">{{comment.Title}}</h4>
+                                                <div id="commentBody">{{comment.Body}}  &nbsp;</div>
+                                                <div id="authorInfo">Created: {{getPrettyDateFormat(comment.CreationDate)}} by {{comment.Author.UserName}}</div>
+                                                @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+                                                {
+                                                    <ul class="nav navbar-nav navbar-right">
+                                                        <li><a href="{{'../Comments/Edit/' + comment.Id}}">Edit</a></li>
+                                                        <li><a href="{{'../Comments/Delete/' + comment.Id}}">Delete</a></li>
+                                                    </ul>
+                                                }
+                                                <p><a href="/#blogTitle" class="btn btn-xs btn-flat style2">Top &nbsp; ↑</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h3 class="title with-icon"><span class="fa  fa-comment-o icn-title"></span> Drop a Comment</h3>
+                                @if (!User.Identity.IsAuthenticated)
+                                {
+                                    <p><a href="/#open-content" class="btn btn-flat btn-lg">Login to Comment</a></p>
+                                }
+                                else {
+                                    @*@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "ng-pristine ng-valid", role = "form" }))*@
+                                    <div class="box-block">
+                                        @using (Html.BeginForm("Create", "Comments", FormMethod.Post, new { @class = "ng-pristine ng-valid", role = "form", ng_submit = "getCommentsWithDelay(blogEntryPick.Id)", id = "commentForm" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                            <input data-val="true" id="BlogEntryId" name="PostId" type="hidden" value="{{blogEntryPick.Id}}" />
+
+                                                    <div class="form-group">
+                                                        @Html.TextBoxFor(m => m.Title, new { @class = "form-control", @placeholder = "{{commentTitle}}", @id = "WebSiteForm" })
+                                                        @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="form-group">
+                                                        @Html.TextAreaFor(m => m.Body, new { @class = "form-control", @placeholder = "{{commentBody}}", @id = "MessageForm" })
+                                                        @Html.ValidationMessageFor(m => m.Body, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <button type="submit" class="btn btn-flat btn-lg">Post A Comment</button>
+                                        }
+                                    </div>
+                                }
+                            </div>
+                            <div ng-if="blogEntryPick == null">
+                                <div ng-repeat="blogEntry in blogEntries">
+                                    <div class="blog-post">
+                                        <div class="row">
+                                            <div class="col-sm-8">
+                                                <h3 class="title-post"><a href="" ng-click="getBlogEntry(blogEntry.Id)"><i class="fa fa-picture-o"></i> {{blogEntry.Title}}</a></h3>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="blog-date">
+                                                    {{getPrettyDateFormat(blogEntry.CreationDate)}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="body-post">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="imgWrapper">
+                                                        <img ng-src="{{blogEntry.MediaURL}}" class="img-full blog-img" alt="Blog Post Picture" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    {{convertHTML(blogEntry.Summary)}}
+                                                    <div ng-bind-html="blogBody"></div>
+                                                    <p>
+                                                        <a href="" class="btn btn-flat style2" ng-click="getBlogEntry(blogEntry.Id)">Read More</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="love-post-btn">
+                                                <div><span><i class="fa fa-heart"></i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- =========
+                End blog post section
+                ===================================-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

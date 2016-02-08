@@ -18,11 +18,23 @@
 #goTop{
     float: right;
 }
+#individualBlog{
+    padding-bottom:14px;
+}
 #commentBody{
 }
 #authorInfo{
     font-size:x-small;
     font-style:italic;
+}
+#pickUserName{
+    border:2px solid;
+    border-color:black;
+}
+#externalLogin{
+    background-color:white;
+    padding:100px;
+    color:#333;
 }
 .fa-microsoft:before {
   content: "\f17a";
