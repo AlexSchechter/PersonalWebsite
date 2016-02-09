@@ -21,10 +21,8 @@
             }
 
             $scope.goList = function () {
-                $scope.blogEntryPick = null;
-                $location.hash("blogContent");
-                $anchorScroll();
-
+                $scope.blogEntryPick = null;             
+                $scope.goToTop();
             }
 
             $scope.getBlogEntry = function (id) {
@@ -66,20 +64,30 @@
 
             $scope.getBlogEntries();
 
+            $scope.goToTop = function () {
+                $location.hash("blogContent");
+                $anchorScroll();
+            }
+
             $scope.searchBlog = function () {
                 if ($scope.searchBlogOn) {
-                    var options = { params: { searchStr: $scope.searchStr } };
-                    $http.get('../BlogEntries/SearchBlog', options).then(function (response) {
-                        $scope.blogEntries = response.data;
-                    });
-                    $scope.displaySearch = "Display All Blogs"
-                    $scope.searchInput = document.getElementById('searchStr').value;
+                    if ($scope.searchStr != null) {
+                        var options = { params: { searchStr: $scope.searchStr } };
+                        $http.get('../BlogEntries/SearchBlog', options).then(function (response) {
+                            $scope.blogEntries = response.data;
+                        });
+                        $scope.displaySearch = "Display All Blogs"
+                        $scope.searchInput = document.getElementById('searchStr').value;
+                        $scope.searchBlogOn = !$scope.searchBlogOn;
+                    }
                 }
                 else {
                     $scope.getBlogEntries();
                     $scope.displaySearch = "Search Blog";
                     document.getElementById('searchStr').value = null;
+                    $scope.searchBlogOn = !$scope.searchBlogOn;
                 }
-                $scope.searchBlogOn = !$scope.searchBlogOn;
+                
             }
+
 }])

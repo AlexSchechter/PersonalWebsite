@@ -625,7 +625,6 @@
     <Content Include="Views\Shared\_PortraitPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>

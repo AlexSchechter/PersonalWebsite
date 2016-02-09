@@ -30,14 +30,9 @@ namespace Blog.Controllers
 
         public JsonResult SearchBlog(string searchStr)
         {
-            var result = db.BlogEntries.Include(b => b.Comments).ToList().Where(b => b.Title.ToLower().Contains(searchStr.ToLower()) 
-                || b.Body.ToLower().Contains(searchStr.ToLower())).OrderByDescending(b => b.CreationDate);
-
-
-            /*|| b.Comments.Any(c => c.Body.Contains(searchStr))
-                || b.Comments.Any(c => c.Author.UserName.Contains(searchStr))*/
+            var result = db.BlogEntries.Include(b => b.Comments).Where(b => b.Title.ToLower().Contains(searchStr.ToLower()) 
+                || b.Body.ToLower().Contains(searchStr.ToLower())).ToList().OrderByDescending(b => b.CreationDate);
             return Json(result, JsonRequestBehavior.AllowGet);
-            //return RedirectToAction("Index", new { post = result, page, size, count });
         }
 
         // GET: BlogEntries

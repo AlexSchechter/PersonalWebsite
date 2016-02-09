@@ -12,7 +12,7 @@
                             <h2 class="title with-icon" id="blogTitle"><span class="fa fa-comment-o icn-title"></span> My Journey to Becoming a Coder</h2>
                         </div>
                         <div ng-if="!searchBlogOn">
-                            <h2 class="title" id="blogTitle"> Blog Posts that Containt the Search String "{{searchInput}}" </h2>
+                            <h2 class="title" id="blogTitle"> Blog Posts that Contains the Search String "{{searchInput}}" </h2>
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                                                         <li><a href="{{'../Comments/Delete/' + comment.Id}}">Delete</a></li>
                                                     </ul>
                                                 }
-                                                <p><a href="/#blogTitle" class="btn btn-xs btn-flat style2">Top &nbsp; ↑</a></p>
+                                                <p><button class="btn btn-xs btn-flat style2" ng-click="goToTop()">Top &nbsp; ↑</button></p>
                                             </div>
                                         </div>
                                     </div>
