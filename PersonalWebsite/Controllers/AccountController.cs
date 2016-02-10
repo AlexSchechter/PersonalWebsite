@@ -12,6 +12,7 @@ using Blog.Models;
 
 namespace Blog.Controllers
 {
+
     [Authorize]
     [RequireHttps]
     public class AccountController : Controller
@@ -345,11 +346,27 @@ namespace Blog.Controllers
                 case SignInStatus.Failure:
                 default:
                     // If the user does not have an account, then prompt the user to create an account
+                    //ApplicationUser existingUser = CheckIfUserExists(loginInfo.Email);
+                    //if (existingUser != null)
+                    //{
+                    //    var user = new ApplicationUser { UserName = existingUser.UserName, Email = existingUser.Email };
+                    //    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    //    return RedirectToAction("Index", "Home");
+                    //}
+                    //else
+                    //{}
                     ViewBag.ReturnUrl = returnUrl;
                     ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
                     return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
+                                   
             }
         }
+
+        //private ApplicationUser CheckIfUserExists(string email)
+        //{
+        //    ApplicationDbContext db = new ApplicationDbContext();
+        //    return db.Users.FirstOrDefault(a => a.Email == email);
+        //}
 
         //
         // POST: /Account/ExternalLoginConfirmation

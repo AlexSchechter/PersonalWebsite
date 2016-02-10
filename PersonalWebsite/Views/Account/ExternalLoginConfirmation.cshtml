@@ -1,4 +1,5 @@
 ﻿@model Blog.Models.ExternalLoginConfirmationViewModel
+@using Blog.Controllers
 
 <div id="externalLogin">
     <h2>@ViewBag.Title</h2>
@@ -12,23 +13,23 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <p>
             You've successfully authenticated with <strong>@ViewBag.LoginProvider</strong>.
-            Please pick a username and click the Register button to finish
+            Please pick a username and an email and click the Register button to finish
             logging in.
         </p>
                 <div class="form-group">
-                    @*@Html.LabelFor(m => m.UserName, new { @class = "col-sm-1" })*@
                     <div class="col-sm-8">
+                        @Html.LabelFor(m => m.UserName)
                         @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Username", @id="pickUserName"})
                         @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                        <br />
+                    </div>
+                    <div class="col-sm-8">
+                        @Html.LabelFor(m => m.Email)
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Model.Email", @id = "pickUserName" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                     </div>
                 </div>
-                <input type="submit" class="btn btn-flat btn-md" value="Register" />
-                @Html.HiddenFor(m => m.Email)
-                @*<div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" class="btn btn-flat btn-lg" value="Register" />
-                    </div>
-                </div>*@
+                <input type="submit" class="btn btn-flat btn-md" value="Register" />      
     }
 
 </div>

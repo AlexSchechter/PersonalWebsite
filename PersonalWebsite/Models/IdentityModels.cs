@@ -37,5 +37,6 @@ namespace Blog.Models
 
         public DbSet<BlogEntry> BlogEntries { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        //public DbSet<ApplicationUser> AspNetUsers { get; internal set; }
     }
 }

@@ -83,7 +83,6 @@
                                     <p><a href="/#open-content" class="btn btn-flat btn-lg">Login to Comment</a></p>
                                 }
                                 else {
-                                    @*@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "ng-pristine ng-valid", role = "form" }))*@
                                     <div class="box-block">
                                         @using (Html.BeginForm("Create", "Comments", FormMethod.Post, new { @class = "ng-pristine ng-valid", role = "form", ng_submit = "getCommentsWithDelay(blogEntryPick.Id)", id = "commentForm" }))
                                         {
