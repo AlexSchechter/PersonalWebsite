@@ -43,7 +43,7 @@
                                         <div ng-bind-html="blogBody" id="individualBlog"></div>
                                         <p>
                                             <a href="" class="btn btn-flat style2" ng-click="goList()">Back to list</a>
-                                            <a href="/#blogTitle" class="btn btn-flat style2" id="goTop">Top of post</a>
+                                            <button class="btn btn-flat style2" id="goTop" ng-click="goToTop()">Top of post</button>
                                             @if (User.IsInRole("Admin"))
                                             {
                                                 <ul class="nav navbar-nav navbar-right">

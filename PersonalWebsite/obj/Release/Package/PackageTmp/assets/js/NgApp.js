@@ -71,7 +71,7 @@
 
             $scope.searchBlog = function () {
                 if ($scope.searchBlogOn) {
-                    if ($scope.searchStr != null) {
+                    if ($scope.searchStr != null && $scope.searchStr != "") {
                         var options = { params: { searchStr: $scope.searchStr } };
                         $http.get('../BlogEntries/SearchBlog', options).then(function (response) {
                             $scope.blogEntries = response.data;
@@ -84,7 +84,7 @@
                 else {
                     $scope.getBlogEntries();
                     $scope.displaySearch = "Search Blog";
-                    document.getElementById('searchStr').value = null;
+                    $scope.searchStr = null;
                     $scope.searchBlogOn = !$scope.searchBlogOn;
                 }
                 

@@ -25,7 +25,13 @@
                     </div>
                     <div class="col-sm-8">
                         @Html.LabelFor(m => m.Email)
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Model.Email", @id = "pickUserName" })
+                        @if (Model.Email == null) {
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email", @id = "pickUserName" })
+                        }
+                        else
+                        {
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Model.Email", @id = "pickUserName" })
+                        }
                         @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                     </div>
                 </div>
