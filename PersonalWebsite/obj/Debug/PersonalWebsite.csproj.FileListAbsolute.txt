@@ -101,3 +101,5 @@ C:\Coding\PersonalWebsite\PersonalWebsite\bin\SendGrid.SmtpApi.dll
 C:\Coding\PersonalWebsite\PersonalWebsite\bin\SendGridMail.dll
 C:\Coding\PersonalWebsite\PersonalWebsite\bin\System.Net.Http.Formatting.dll
 C:\Coding\PersonalWebsite\PersonalWebsite\bin\System.Net.Http.Formatting.xml
+C:\Coding\PersonalWebsite\PersonalWebsite\bin\Facebook.dll
+C:\Coding\PersonalWebsite\PersonalWebsite\bin\Facebook.xml

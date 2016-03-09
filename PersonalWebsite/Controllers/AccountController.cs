@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Blog.Models;
+using Facebook;
 
 namespace Blog.Controllers
 {
@@ -333,6 +334,23 @@ namespace Blog.Controllers
                 return RedirectToAction("Login");
             }
 
+            if (loginInfo.Login.LoginProvider == "Facebook")
+            {
+                var identity = AuthenticationManager.GetExternalIdentity(DefaultAuthenticationTypes.ExternalCookie);
+                var access_token = identity.FindFirstValue("FacebookAccessToken");
+                var fb = new FacebookClient(access_token);
+                dynamic myInfo = fb.Get("/me?fields=email"); // specify the email field
+                loginInfo.Email = myInfo.email;
+            }
+
+            if (loginInfo.Login.LoginProvider == "Microsoft")
+            {
+                var identity = await AuthenticationManager.AuthenticateAsync(DefaultAuthenticationTypes.ExternalCookie);
+                var emailClaim = identity.Identity.FindFirst(ClaimTypes.Email).Value;
+                //var microsoftIdentity = HttpContext.GetOwinContext().Authentication.GetExternalLoginInfoAsync();
+                //loginInfo.Email = microsoftIdentity.Result.Email;
+            }
+
             // Sign in the user with this external login provider if the user already has a login
             var result = await SignInManager.ExternalSignInAsync(loginInfo, isPersistent: false);
             switch (result)
@@ -355,10 +373,12 @@ namespace Blog.Controllers
                     //}
                     //else
                     //{}
-                    ViewBag.ReturnUrl = returnUrl;
-                    ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
-                    return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
-                                   
+                    //ViewBag.ReturnUrl = returnUrl;
+                    //ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
+                    await ExternalLoginConfirmation(new ExternalLoginConfirmationViewModel { Email = loginInfo.Email, UserName = loginInfo.Email }, returnUrl);
+                    return RedirectToAction("Index", "Home");
+                    //return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
+
             }
         }
 
@@ -396,6 +416,16 @@ namespace Blog.Controllers
                     if (result.Succeeded)
                     {
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                        return RedirectToLocal(returnUrl);
+                    }
+                }
+                else if (UserManager.FindByEmail(model.Email) != null)
+                {
+                    var existingUser = await UserManager.FindByEmailAsync(model.Email);
+                    result = await UserManager.AddLoginAsync(existingUser.Id, info.Login);
+                    if (result.Succeeded)
+                    {
+                        await SignInManager.SignInAsync(existingUser, isPersistent: false, rememberBrowser: false);
                         return RedirectToLocal(returnUrl);
                     }
                 }
