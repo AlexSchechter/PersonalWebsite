@@ -10,7 +10,7 @@
                 <li class="filter active" data-filter="all">All</li>
                 <li class="filter" data-filter="cSharp">C#</li>
                 <li class="filter" data-filter="angularJS">AngularJS</li>
-                <li class="filter" data-filter="javascript">Javascript</li>
+                <li class="filter" data-filter="javascript">JS Examples</li>
             </ul>
         </div>
         <!-- =========
@@ -20,19 +20,25 @@
         Start grid postfolio section
         ===================================-->
         <ul id='portfolio-grid' class="list-unstyled grid-portfolio">
+            <li class="mix cSharp">
+                <div class="item-portfolio">
+                    <a href="http://budgeterapp.azurewebsites.net" class="preview-portfolio imgWrapper" target="_blank">
+                        <img src="~/assets/images/budgeting.jpg" alt="budgeting.jpg" class="img-responsive-carfinder" />
+                    </a>
+                    <div class="desc-portfolio"><h5>Budgeting App<small>A C#/ASP.NET Project</small></h5></div>
+                </div>
+            </li>
             <li class="mix angularJS">
                 <div class="item-portfolio">
-                    <a href="http://carfinderapp.azurewebsites.net/" class="preview-portfolio imgWrapper popup-iframe">
-                        <div class="mask"><div class="icn-center"><i class="fa fa-vimeo-square "></i></div></div>
+                    <a href="http://carfinderapp.azurewebsites.net/" class="preview-portfolio imgWrapper" target="_blank">                     
                         <img src="~/assets/images/bugatti.jpg" alt="bugatti.jpg" class="img-responsive-carfinder" />
                     </a>
-                    <div class="desc-portfolio"><h5>Car Finder App<small><a href="http://carfinderapp.azurewebsites.net/" target="_blank">Click here for full Website</a></small></h5></div>
+                    <div class="desc-portfolio"><h5>Car Finder App<small>A Angular JS Project</small></h5></div>
                 </div>
             </li>
             <li class="mix javascript">
                 <div class="item-portfolio">
-                    <a href="" data-toggle="modal" data-target="#primefactors" class="preview-portfolio imgWrapper">
-                        <div class="mask"><div class="icn-center"><i class="fa fa-link "></i></div></div>
+                    <a href="" data-toggle="modal" data-target="#primefactors" class="preview-portfolio imgWrapper">                      
                         <img src="~/assets/images/factorization.png" alt="factorization.png" class="img-responsive" />
                     </a>
                     <div class="desc-portfolio"><h5>Prime Factors <small>a Javascript Exercise</small></h5></div>
@@ -111,13 +117,11 @@ function myReset() {
 
             <li class="mix javascript">
                 <div class="item-portfolio">
-                    <a href="" data-toggle="modal" data-target="#longestWord" class="preview-portfolio imgWrapper">
-                        <!--<a href="~/assets/images/portfolio/big/portfolio-big.png" class="preview-portfolio imgWrapper image-popup">-->
-                        <div class="mask"><div class="icn-center"><i class="fa fa-link "></i></div></div>
-                        <img src="~/assets/images/longestWord.jpg" alt="longestWord.jpg" class="img-responsive" />
+                    <a href="" data-toggle="modal" data-target="#longestWord" class="preview-portfolio imgWrapper">                      
+                        <img src=@Url.Content("~/assets/images/longestWord.jpg") alt="longestWord.jpg" class="img-responsive" />
                     </a>
                     <div class="desc-portfolio"><h5>The Longest Word <small>a Javascript Exercise</small></h5></div>
-
+                     
                     <div class="modal fade" id="longestWord" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
@@ -184,8 +188,7 @@ $(function(){
             <li class="mix javascript">
                 <div class="item-portfolio">
                     <a href="" data-toggle="modal" data-target="#fiveNumbers" class="preview-portfolio imgWrapper">
-                        <div class="mask"><div class="icn-center"><i class="fa fa-link "></i></div></div>
-                        <img src="~/assets/images/fiveNumbers.png" alt="fiveNumbers.png" class="img-responsive" />
+                        <img src=@Url.Content("~/assets/images/fiveNumbers.png") alt="fiveNumbers.png" class="img-responsive" />
                     </a>
                     <div class="desc-portfolio"><h5>Five Numbers <small>a Javascript Exercise</small></h5></div>
 
@@ -269,8 +272,7 @@ $(function(){
             <li class="mix javascript">
                 <div class="item-portfolio">
                     <a href="" data-toggle="modal" data-target="#factorial" class="preview-portfolio imgWrapper">
-                        <div class="mask"><div class="icn-center"><i class="fa fa-link "></i></div></div>
-                        <img src="~/assets/images/factorial.png" alt="factorial.png" class="img-responsive" />
+                        <img src=@Url.Content("~/assets/images/factorial.png") alt="factorial.png" class="img-responsive" />
                     </a>
                     <div class="desc-portfolio"><h5>Factorial <small>a Javascript Exercise</small></h5></div>
 
@@ -339,7 +341,6 @@ function myReset() {
             <li class="mix javascript">
                 <div class="item-portfolio">
                     <a href="" data-toggle="modal" data-target="#fizzBuzz" class="preview-portfolio imgWrapper">
-                        <div class="mask"><div class="icn-center"><i class="fa fa-link "></i></div></div>
                         <img src=@Url.Content("~/assets/images/fizzBuzz3.png") alt="fizzBuzz3.png" class="img-responsive" />
                     </a>
                     <div class="desc-portfolio"><h5>FizzBuzz <small>a Javascript Exercise</small></h5></div>
@@ -451,7 +452,6 @@ $(function(){
             <li class="mix javascript">
                 <div class="item-portfolio">
                     <a href="" data-toggle="modal" data-target="#palindrome" class="preview-portfolio imgWrapper">
-                        <div class="mask"><div class="icn-center"><i class="fa fa-link "></i></div></div>
                         <img src="~/assets/images/palindrome.png" alt="palindrome.png" class="img-responsive-palindrome" />
                     </a>
                     <div class="desc-portfolio"><h5>Palindrome <small>a Javascript Exercise</small></h5></div>
@@ -533,75 +533,7 @@ $(function(){
                     </div>
                 </div>
             </li>
-
-            <li class="mix cSharp">
-                <div class="item-portfolio">
-                    <a href="http://www.youtube.com/watch?v=0O2aH4XLbto" class="preview-portfolio imgWrapper popup-iframe">
-                        <div class="mask"><div class="icn-center"><i class="fa fa-youtube "></i></div></div>
-                        <img src="~/assets/images/fizzBuzzBlurr.jpg" alt="fizzBuzzBlurr.jpg" class="img-responsive" />
-                    </a>
-                    <div class="desc-portfolio"><h5>PERSONAL  PROJECT <small>a Web Design</small></h5></div>
-                </div>
-            </li>
-
-            <!--<li class="mix websiteapp">
-                <div class="item-portfolio">
-                    <a href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&amp;hl=en&amp;t=v&amp;hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom" class="preview-portfolio imgWrapper popup-iframe">
-                        <div class="mask"><div class="icn-center"><i class="fa fa-map-marker "></i></div></div>
-                        <img src="~/assets/images/portfolio/portfolio.png" alt="" class="img-responsive" />
-                    </a>
-                    <div class="desc-portfolio"><h5>PERSONAL  PROJECT <small>a Web Design</small></h5></div>
-                </div>
-            </li>
-            <li class="mix mobileapp">
-                <div class="item-portfolio">
-                    <a href="~/assets/images/portfolio/big/portfolio-big.png" class="preview-portfolio imgWrapper image-popup">
-                        <div class="mask"><div class="icn-center"><i class="fa fa-link "></i></div></div>
-                        <img src="~/assets/images/portfolio/portfolio.png" alt="" class="img-responsive" />
-
-                    </a>
-                    <div class="desc-portfolio"><h5>PERSONAL  PROJECT <small>a Web Design</small></h5></div>
-                </div>
-
-            </li>
-            <li class="mix javascript">
-                <div class="item-portfolio">
-                    <a href="~/assets/images/portfolio/big/portfolio-big.png " class="preview-portfolio imgWrapper image-popup">
-                        <div class="mask"><div class="icn-center"><i class="fa fa-picture-o "></i></div></div>
-                        <img src="~/assets/images/portfolio/portfolio.png" alt="" class="img-responsive" />
-                    </a>
-                    <div class="desc-portfolio"><h5>PERSONAL  PROJECT <small>a Web Design</small></h5></div>
-                </div>
-            </li>
-            <li class="mix javascript">
-                <div class="item-portfolio">
-                    <a href="~/assets/images/portfolio/big/portfolio-big.png" class="preview-portfolio imgWrapper image-popup">
-                        <div class="mask"><div class="icn-center"><i class="fa fa-picture-o "></i></div></div>
-                        <img src="~/assets/images/portfolio/portfolio.png" alt="" class="img-responsive" />
-                    </a>
-                    <div class="desc-portfolio"><h5>PERSONAL  PROJECT <small>a Web Design</small></h5></div>
-                </div>
-            </li>
-            <li class="mix mobileapp">
-                <div class="item-portfolio">
-                    <a href="~/assets/images/portfolio/big/portfolio-big.png" class="preview-portfolio imgWrapper image-popup">
-                        <div class="mask"><div class="icn-center"><i class="fa fa-link "></i></div></div>
-                        <img src="~/assets/images/portfolio/portfolio.png" alt="" class="img-responsive" />
-                    </a>
-                    <div class="desc-portfolio"><h5>PERSONAL  PROJECT <small>a Web Design</small></h5></div>
-                </div>
-            </li>
-            <li class="mix websiteapp">
-                <div class="item-portfolio">
-                    <a href="~/assets/images/portfolio/big/portfolio-big.png " class="preview-portfolio imgWrapper image-popup">
-                        <div class="mask"><div class="icn-center"><i class="fa fa-picture-o "></i></div></div>
-                        <img src="~/assets/images/portfolio/portfolio.png" alt="" class="img-responsive" />
-                    </a>
-                    <div class="desc-portfolio"><h5>PERSONAL  PROJECT <small>a Web Design</small></h5></div>
-                </div>
-            </li>-->
         </ul>
-
         <!-- =========
         End grid portfolio section
         ===================================-->
