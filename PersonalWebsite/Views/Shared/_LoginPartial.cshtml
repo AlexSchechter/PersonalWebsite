@@ -36,8 +36,7 @@
                                             {
                                                 <button type="submit" class="btn btn-block btn-social btn-@p.AuthenticationType.ToLower()" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">
                                                     <span class="fa fa-@p.AuthenticationType.ToLower()"></span>@p.AuthenticationType
-                                                </button>
-                                                @*<button type="submit" class="fb-login-button" data-size="large" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>*@
+                                                </button>                           
                                             }
                                         }
                                     </p>
@@ -83,7 +82,6 @@
 }
 else
 {
-
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
     {
         if (User.IsInRole("Admin"))

@@ -138,44 +138,7 @@ namespace Blog.Controllers
             }
         }
 
-        //
-        // GET: /Account/Register
-        [AllowAnonymous]
-        public ActionResult Register()
-        {
-            return View();
-        }
-
-        //
-        // POST: /Account/Register
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
-                    return RedirectToAction("Index", "Home");
-                }
-                AddErrors(result);
-            }
-
-            // If we got this far, something failed, redisplay form
-            return View(model);
-        }
-
+ 
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
@@ -347,11 +310,8 @@ namespace Blog.Controllers
             {
                 var identity = await AuthenticationManager.AuthenticateAsync(DefaultAuthenticationTypes.ExternalCookie);
                 var emailClaim = identity.Identity.FindFirst(ClaimTypes.Email).Value;
-                //var microsoftIdentity = HttpContext.GetOwinContext().Authentication.GetExternalLoginInfoAsync();
-                //loginInfo.Email = microsoftIdentity.Result.Email;
             }
 
-            // Sign in the user with this external login provider if the user already has a login
             var result = await SignInManager.ExternalSignInAsync(loginInfo, isPersistent: false);
             switch (result)
             {
@@ -362,31 +322,12 @@ namespace Blog.Controllers
                 case SignInStatus.RequiresVerification:
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = false });
                 case SignInStatus.Failure:
-                default:
-                    // If the user does not have an account, then prompt the user to create an account
-                    //ApplicationUser existingUser = CheckIfUserExists(loginInfo.Email);
-                    //if (existingUser != null)
-                    //{
-                    //    var user = new ApplicationUser { UserName = existingUser.UserName, Email = existingUser.Email };
-                    //    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                    //    return RedirectToAction("Index", "Home");
-                    //}
-                    //else
-                    //{}
-                    //ViewBag.ReturnUrl = returnUrl;
-                    //ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
+                default:                  
                     await ExternalLoginConfirmation(new ExternalLoginConfirmationViewModel { Email = loginInfo.Email, UserName = loginInfo.Email }, returnUrl);
                     return RedirectToAction("Index", "Home");
-                    //return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
 
             }
         }
-
-        //private ApplicationUser CheckIfUserExists(string email)
-        //{
-        //    ApplicationDbContext db = new ApplicationDbContext();
-        //    return db.Users.FirstOrDefault(a => a.Email == email);
-        //}
 
         //
         // POST: /Account/ExternalLoginConfirmation
