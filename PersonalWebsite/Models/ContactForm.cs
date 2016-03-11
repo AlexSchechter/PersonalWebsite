@@ -8,6 +8,7 @@ namespace Blog.Models
     public class ContactForm
     {
         public int Id { get; set; }
+        public DateTimeOffset? SubmittedDate { get; set; }
         public string FullName { get; set; }
         public string Company { get; set; }
         public string Email { get; set; }

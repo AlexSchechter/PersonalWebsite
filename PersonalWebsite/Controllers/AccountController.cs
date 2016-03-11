@@ -144,8 +144,10 @@ namespace Blog.Controllers
         {
             ApplicationDbContext db = new ApplicationDbContext();
             ApplicationUser me = await db.Users.FirstOrDefaultAsync(u => u.Email == "a.schechter@outlook.com");
-            await UserManager.SendEmailAsync(me.Id, "You Have Been Contacted",
-                contactForm.FullName + contactForm.Email + contactForm.Company + contactForm.PhoneNumber + contactForm.Message);
+            await UserManager.SendEmailAsync(me.Id, "You Have Been Contacted", String.Concat(contactForm.SubmittedDate.ToString(), 
+                " ", contactForm.FullName, " ", contactForm.Email, " ", contactForm.Company, " ", contactForm.PhoneNumber, " ", 
+                contactForm.Message));
+
             var myMessage = new SendGridMessage();
 
         }
@@ -159,6 +161,7 @@ namespace Blog.Controllers
             ApplicationDbContext db = new ApplicationDbContext();
             if (ModelState.IsValid)
             {
+                contactForm.SubmittedDate = DateTimeOffset.Now;
                 db.ContactForm.Add(contactForm);
                 await db.SaveChangesAsync();
             }

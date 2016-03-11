@@ -13,7 +13,6 @@ using Microsoft.Owin.Security;
 using Blog.Models;
 using System.Configuration;
 using SendGrid;
-using System.Net.Mail;
 using System.Net;
 using System.Diagnostics;
 using Blog;
@@ -31,7 +30,7 @@ namespace Blog
         {
             var myMessage = new SendGridMessage();
             myMessage.AddTo(message.Destination);
-            myMessage.From = new System.Net.Mail.MailAddress("noreply@bugtracker.com", "Do Not Reply");
+            myMessage.From = new System.Net.Mail.MailAddress("noreply@ASchechterWebsite.com", "Do Not Reply");
             myMessage.Subject = message.Subject;
             message.Body = message.Body;
             myMessage.Html = message.Body;
@@ -98,7 +97,7 @@ namespace Blog
                 // You can write your own provider and plug it in here.
                 manager.RegisterTwoFactorProvider("Phone Code", new PhoneNumberTokenProvider<ApplicationUser>
                 {
-                    messageFormat = "Your security code is {0}"
+                    //messageFormat = "Your security code is {0}"
                 });
                 manager.RegisterTwoFactorProvider("Email Code", new EmailTokenProvider<ApplicationUser>
                 {

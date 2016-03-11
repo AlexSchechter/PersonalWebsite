@@ -3,6 +3,7 @@ Web.config
 Startup.Auth.cs
 Configuration.cs
 IdentityConfig.cs
+bin
 
 # Windows image file caches
 Thumbs.db
