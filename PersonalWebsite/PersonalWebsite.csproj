@@ -297,6 +297,7 @@
     <Content Include="assets\images\portfolio\big\portfolio-big.png" />
     <Content Include="assets\images\portfolio\portfolio.png" />
     <Content Include="assets\js\app.js" />
+    <Content Include="assets\js\custom-js.js" />
     <Content Include="assets\js\Factorial.js" />
     <Content Include="assets\js\FiveNumbers.js" />
     <Content Include="assets\js\FizzBuzz.js" />

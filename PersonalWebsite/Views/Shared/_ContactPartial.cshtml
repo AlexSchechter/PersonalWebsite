@@ -26,47 +26,47 @@
         <!-- =========
         Start form contact section
         ===================================-->
-        @using (Html.BeginForm("Create", "ContactForms", FormMethod.Post))
+        @using (Html.BeginForm("CreateContactInfo", "Account", FormMethod.Post, new { @id = "contactForm" }))
         {
             @Html.AntiForgeryToken()
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="FullNameForm">Full Name</label>
-                        @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", @id = "FullNameForm", @placeholder = "Enter Full Name"})
+                        <label for="fullNameForm">Full Name</label>
+                        @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", @id = "fullNameForm", @placeholder = "Enter Full Name"})
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="CompanyForm">Company</label>
-                        @Html.TextBoxFor(m => m.Company, new { @class = "form-control", @id = "CompanyForm", @placeholder = "Enter Company"})                    
+                        <label for="companyForm">Company</label>
+                        @Html.TextBoxFor(m => m.Company, new { @class = "form-control", @id = "companyForm", @placeholder = "Enter Company"})                    
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="EmailForm">Email Address</label>
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @id = "EmailForm", @placeholder = "Enter Address", @type = "email" })
+                        <label for="emailForm">Email Address</label>
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @id = "emailForm", @placeholder = "Enter Address", @type = "email" })
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="PhoneForm">Phone Number</label>
-                        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", @id = "PhoneForm", @placeholder = "Enter Phone Number" })
+                        <label for="phoneForm">Phone Number</label>
+                        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", @id = "phoneForm", @placeholder = "Enter Phone Number" })
                     </div>
                 </div>
             </div>
             <div class="form-group">
-                <label for="MessageForm">Message</label>
-                @Html.TextAreaFor(m => m.Message, new { @class = "form-control", @id = "MessageForm", @placeholder = "Enter Message"})
+                <label for="messageForm">Message</label>
+                @Html.TextAreaFor(m => m.Message, new { @class = "form-control", @id = "messageForm", @placeholder = "Enter Message"})
             </div>
 
-            <input type="submit" class="btn btn-flat btn-lg" value = "Send" />
+            <input type="submit" class="btn btn-flat btn-lg" value = "Send" id="contactRequest" />
         }
 
-
+        <div class="h4 text-danger" id="fillForm" hidden>Please fill in name and email fields to send form</div>
         <!-- =========
         End form contact section
         ===================================-->

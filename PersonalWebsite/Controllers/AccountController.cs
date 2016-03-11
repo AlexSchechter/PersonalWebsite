@@ -10,6 +10,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Blog.Models;
 using Facebook;
+using System.Data.Entity;
+using SendGrid;
 
 namespace Blog.Controllers
 {
@@ -138,7 +140,32 @@ namespace Blog.Controllers
             }
         }
 
- 
+        private async Task SendContactInfo(ContactForm contactForm)
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            ApplicationUser me = await db.Users.FirstOrDefaultAsync(u => u.Email == "a.schechter@outlook.com");
+            await UserManager.SendEmailAsync(me.Id, "You Have Been Contacted",
+                contactForm.FullName + contactForm.Email + contactForm.Company + contactForm.PhoneNumber + contactForm.Message);
+            var myMessage = new SendGridMessage();
+
+        }
+
+        // POST: ContactForms/Create       
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> CreateContactInfo([Bind(Include = "Id,FullName,Company,Email,PhoneNumber,Message")] ContactForm contactForm)
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            if (ModelState.IsValid)
+            {
+                db.ContactForm.Add(contactForm);
+                await db.SaveChangesAsync();
+            }
+            await SendContactInfo(contactForm);
+            return RedirectToAction("Index", "Home");
+        }
+
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]

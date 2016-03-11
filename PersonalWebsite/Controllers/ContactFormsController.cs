@@ -27,6 +27,8 @@ namespace Blog.Controllers
                 await db.SaveChangesAsync();              
             }
 
+         
+
             return RedirectToAction("Index", "Home");
         }
 
@@ -38,5 +40,6 @@ namespace Blog.Controllers
             }
             base.Dispose(disposing);
         }
+
     }
 }
