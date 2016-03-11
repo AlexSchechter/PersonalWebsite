@@ -4,7 +4,6 @@ Startup.Auth.cs
 Configuration.cs
 IdentityConfig.cs
 bin/
-PersonalWebsite/bin/
 
 # Windows image file caches
 Thumbs.db
