@@ -35,12 +35,12 @@
     Start Wrapper Page
     ===================================-->
     <div id="wrapper">
-        <div class="container">
-            
-                    @RenderBody()
-                </div>
-            </div>
-   
+        <div class="container">          
+            @*<div id="formSent" hidden>@ViewBag.FormSent</div>*@            
+            @RenderBody()     
+        </div>
+    </div>
+
     <!-- =========
     End Wrapper Page
     ===================================-->
@@ -77,6 +77,8 @@
     <script src="~/assets/js/PrimeFactors.js"></script>
     <script src="~/Scripts/angular.min.js"></script>
     <script src="~/assets/js/NgApp.js"></script>
+    <script src="~/Scripts/bootstrap-dialog.js"></script>
+    <script src="~/assets/js/custom-js.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -6,70 +6,91 @@
         <!-- =========
         Start map section
         ===================================-->
-        <div class="map-area">
+        @*<div class="map-area">
             <div id="map"></div>
-            <div class="info-map">
+            <div class="info-map">*@
                 <h3>Contact Info</h3>
                 <ul class="list-unstyled list-info">
-                    <li><i class="fa fa-home"></i> Notting Hill, London, U.K.</li>
+                    <li><i class="fa fa-home"></i>London, U.K.</li>
                     <li><i class="fa fa-phone"></i> +44 7932 077550</li>
+                    <li><i class="fa fa-envelope"></i> <a href="mailto:a.schechter@outlook.com">a.schechter@outlook.com</a></li>
+                    <li><i class="fa fa-github"></i> <a href="https://github.com/AlexSchechter" target="_blank">GitHub</a></li>
                     <li><i class="fa fa-linkedin"></i> <a href="https://uk.linkedin.com/in/alexander-schechter-b28150" target="_blank">LinkedIn</a></li>
-                    <li><i class="fa fa-facebook"></i> <a href="https://www.facebook.com/alexanderschechter" target="_blank">Facebook</a></li>
                 </ul>
-            </div>
-        </div>
+            @*</div>
+        </div>*@
         <div class="deviter"></div>
         <br />
         <!-- =========
         End map section
-        ===================================-->
+        ===================================-->        
         <!-- =========
         Start form contact section
         ===================================-->
-        @using (Html.BeginForm("Create", "ContactForms", FormMethod.Post))
+        @using (Html.BeginForm("CreateContactInfo", "Account", FormMethod.Post, new { @id = "contactForm" }))
         {
             @Html.AntiForgeryToken()
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="FullNameForm">Full Name</label>
-                        @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", @id = "FullNameForm", @placeholder = "Enter Full Name"})
+                        <label for="fullNameForm">Full Name</label>
+                        @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", @id = "fullNameForm", @placeholder = "Enter Full Name"})
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="CompanyForm">Company</label>
-                        @Html.TextBoxFor(m => m.Company, new { @class = "form-control", @id = "CompanyForm", @placeholder = "Enter Company"})                    
+                        <label for="companyForm">Company</label>
+                        @Html.TextBoxFor(m => m.Company, new { @class = "form-control", @id = "companyForm", @placeholder = "Enter Company"})                    
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="EmailForm">Email Address</label>
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @id = "EmailForm", @placeholder = "Enter Address", @type = "email" })
+                        <label for="emailForm">Email Address</label>
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @id = "emailForm", @placeholder = "Enter Address", @type = "email" })
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="PhoneForm">Phone Number</label>
-                        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", @id = "PhoneForm", @placeholder = "Enter Phone Number" })
+                        <label for="phoneForm">Phone Number</label>
+                        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", @id = "phoneForm", @placeholder = "Enter Phone Number" })
                     </div>
                 </div>
             </div>
             <div class="form-group">
-                <label for="MessageForm">Message</label>
-                @Html.TextAreaFor(m => m.Message, new { @class = "form-control", @id = "MessageForm", @placeholder = "Enter Message"})
+                <label for="messageForm">Message</label>
+                @Html.TextAreaFor(m => m.Message, new { @class = "form-control", @id = "messageForm", @placeholder = "Enter Message"})
             </div>
 
-            <input type="submit" class="btn btn-flat btn-lg" value = "Send" />
+            <input type="submit" class="btn btn-flat btn-lg" value = "Send" id="contactRequest" />
         }
 
+        <div class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>One fine body…</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
 
+
+        <div class="h4 text-danger" id="fillForm" hidden>Please fill in name and email fields to send form</div>
         <!-- =========
         End form contact section
         ===================================-->
 
     </div>
 </div>
+

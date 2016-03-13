@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -75,7 +74,6 @@ namespace Blog.Controllers
         {
             if (!ModelState.IsValid)
             {
-                //return Content("This is an error message", "text/html");
                 return View(model);
             }
 
@@ -150,23 +148,6 @@ namespace Blog.Controllers
 
             var myMessage = new SendGridMessage();
 
-        }
-
-        // POST: ContactForms/Create       
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateContactInfo([Bind(Include = "Id,FullName,Company,Email,PhoneNumber,Message")] ContactForm contactForm)
-        {
-            ApplicationDbContext db = new ApplicationDbContext();
-            if (ModelState.IsValid)
-            {
-                contactForm.SubmittedDate = DateTimeOffset.Now;
-                db.ContactForm.Add(contactForm);
-                await db.SaveChangesAsync();
-            }
-            await SendContactInfo(contactForm);
-            return RedirectToAction("Index", "Home");
         }
 
         //
@@ -423,6 +404,24 @@ namespace Blog.Controllers
         public ActionResult ExternalLoginFailure()
         {
             return View();
+        }
+
+
+        // POST: ContactForms/Create       
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> CreateContactInfo([Bind(Include = "Id,FullName,Company,Email,PhoneNumber,Message")] ContactForm contactForm)
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            if (ModelState.IsValid)
+            {
+                contactForm.SubmittedDate = DateTimeOffset.Now;
+                db.ContactForm.Add(contactForm);
+                await db.SaveChangesAsync();
+            }
+            await SendContactInfo(contactForm);
+            return RedirectToAction("Index", "Home", new { formSent = true });
         }
 
         protected override void Dispose(bool disposing)

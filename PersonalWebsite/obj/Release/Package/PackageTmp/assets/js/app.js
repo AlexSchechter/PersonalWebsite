@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {;
     init_check_hash();
     init_text_wait();
     init_active_nav();

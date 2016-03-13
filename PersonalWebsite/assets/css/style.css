@@ -296,7 +296,7 @@ Header Section
   background:#e1e1e1;
   font-size:12px;
 }
-.portrait .portrait-img-area .profile-links a.facebook {
+.portrait .portrait-img-area .profile-links a.github {
   right:-10px;
   bottom:0;
   background:#2C92AC;
@@ -308,12 +308,7 @@ Header Section
   background:#2C92AC;
   color:white;
 }
-/*.portrait .portrait-img-area .profile-links a.twitter {
-  left:-10px;
-  bottom:0;
-  background:#2C92AC;
-  color:white;
-}*/
+
 .portrait .name {
   font-size:30px;
   line-height:50px;
@@ -1032,6 +1027,9 @@ Main Section Section
   position:relative;
   margin-bottom:5px;
   width:auto;
+}
+.btn-flat.green{
+    background: #63A4B5;
 }
 /*.btn-flat:hover,
 .btn-flat:focus,

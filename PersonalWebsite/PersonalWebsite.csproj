@@ -272,6 +272,7 @@
     <Content Include="assets\images\bg\skulls.png" />
     <Content Include="assets\images\bg\textured_paper.png" />
     <Content Include="assets\images\blog\blog.png" />
+    <Content Include="assets\images\budgeting.jpg" />
     <Content Include="assets\images\bugatti.jpg" />
     <Content Include="assets\images\client\client.png" />
     <Content Include="assets\images\CoderFoundryjpg.jpg" />
@@ -616,11 +617,6 @@
     <Content Include="Views\Shared\_ResumePartial.cshtml" />
     <Content Include="Views\Shared\_AboutPartial.cshtml" />
     <Content Include="Views\Shared\_PortraitPartial.cshtml" />
-    <Content Include="Views\ContactForms\Create.cshtml" />
-    <Content Include="Views\ContactForms\Delete.cshtml" />
-    <Content Include="Views\ContactForms\Details.cshtml" />
-    <Content Include="Views\ContactForms\Edit.cshtml" />
-    <Content Include="Views\ContactForms\Index.cshtml" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.json" />

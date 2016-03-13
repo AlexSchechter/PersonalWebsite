@@ -2,7 +2,10 @@
 <header class="portrait">
     <div class="bg-line"></div>
     <div class="body-portrait">
-
+        @if (ViewBag.FormSent)
+        {
+            <div class="h3 text-danger"> Your details have been sent, thank you for contacting me! I will normally get back to you within 24 hours.</div>
+        }
         <!-- =========
         Start Note Slider
         ===================================-->
@@ -35,7 +38,7 @@
             <img src="~/assets/images/AS2.jpg" alt="avatar" class="avatar" />
             <div class="profile-links">
                 <a href="https://uk.linkedin.com/in/alexander-schechter-b28150" target="_blank" class="linkedin" data-toggle="tooltip" data-placement="right" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
-                <a href="https://www.facebook.com/alexanderschechter" target="_blank" class="facebook" data-toggle="tooltip" data-placement="left" title="Facebook"><i class="fa fa-facebook"></i></a>
+                <a href="https://github.com/AlexSchechter/" target="_blank" class="github" data-toggle="tooltip" data-placement="left" title="Github"><i class="fa fa-github"></i></a>
             </div>
         </div>
         <!-- =========
@@ -44,7 +47,7 @@
         <!-- =========
         Start Show Yor Name Section
         ===================================-->
-        <h1 class="name">Alexander Schechter, PhD <small>Computer Programmer</small></h1>
+        <h1 class="name">Alexander Schechter, PhD <small>Software Developer</small></h1>
         <img src="~/assets/images/arrow-down.png" alt="" class="img-arrow">
         <a href="javascript:void(0)" class="btn btn-flat " id="open-content">About Me</a>
         <img src="~/assets/images/arrow-down.png" alt="" class="img-arrow">
