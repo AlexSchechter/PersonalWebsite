@@ -5,18 +5,10 @@ namespace Blog.Controllers
     [RequireHttps]
     public class HomeController : Controller
     {
-        public ActionResult Index(bool? formSent)    
+        public ActionResult Index()    
         {
-            ViewBag.FormSent = formSent == null ? false : true;
-            formSent = null;
+            ViewBag.FormSent = TempData["formSent"] == null ? false : true;
             return View();
         }
-
-        //[ChildActionOnly]
-        //public ActionResult FormSent()
-        //{
-            
-        //    return new ContentResult { Content = "true" };
-        //}
     }
 }

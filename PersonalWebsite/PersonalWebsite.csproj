@@ -286,6 +286,7 @@
     <Content Include="assets\images\fizzBuzz.jpg" />
     <Content Include="assets\images\FizzBuzz3.png" />
     <Content Include="assets\images\fizzBuzzBlurr.jpg" />
+    <Content Include="assets\images\HomeStretch.png" />
     <Content Include="assets\images\icon.png" />
     <Content Include="assets\images\loader.gif" />
     <Content Include="assets\images\longestWord.jpg" />
@@ -394,6 +395,7 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="Content\bootstrap-dialog.less" />
+    <Content Include="assets\AlexanderSchechter.pdf" />
     <None Include="Properties\PublishProfiles\AlexSchechter - Web Deploy.pubxml" />
     <Content Include="Scripts\bootstrap-dialog.js" />
     <Content Include="Scripts\bootstrap.js" />

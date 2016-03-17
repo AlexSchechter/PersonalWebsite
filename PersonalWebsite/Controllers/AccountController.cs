@@ -303,17 +303,15 @@ namespace Blog.Controllers
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
-            if (loginInfo == null)
-            {
+            if (loginInfo == null)           
                 return RedirectToAction("Login");
-            }
-
+            
             if (loginInfo.Login.LoginProvider == "Facebook")
             {
                 var identity = AuthenticationManager.GetExternalIdentity(DefaultAuthenticationTypes.ExternalCookie);
                 var access_token = identity.FindFirstValue("FacebookAccessToken");
                 var fb = new FacebookClient(access_token);
-                dynamic myInfo = fb.Get("/me?fields=email"); // specify the email field
+                dynamic myInfo = fb.Get("/me?fields=email");
                 loginInfo.Email = myInfo.email;
             }
 
@@ -407,7 +405,7 @@ namespace Blog.Controllers
         }
 
 
-        // POST: ContactForms/Create       
+        // POST: Account/CreateContactInfo       
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -421,7 +419,8 @@ namespace Blog.Controllers
                 await db.SaveChangesAsync();
             }
             await SendContactInfo(contactForm);
-            return RedirectToAction("Index", "Home", new { formSent = true });
+            TempData["formSent"] = true;
+            return RedirectToAction("Index", "Home");
         }
 
         protected override void Dispose(bool disposing)
