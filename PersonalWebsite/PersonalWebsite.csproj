@@ -281,6 +281,7 @@
     <Content Include="assets\images\factorial.png" />
     <Content Include="assets\images\factorization.png" />
     <Content Include="assets\images\faicon.png" />
+    <Content Include="assets\images\Finish.jpg" />
     <Content Include="assets\images\fiveNumbers.png" />
     <Content Include="assets\images\fizz.png" />
     <Content Include="assets\images\fizzBuzz.jpg" />
@@ -583,7 +584,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
@@ -597,7 +597,6 @@
     <Content Include="Views\Manage\Index.cshtml" />
     <Content Include="Views\Manage\ManageLogins.cshtml" />
     <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\BlogEntries\Create.cshtml" />
     <Content Include="Views\BlogEntries\Delete.cshtml" />

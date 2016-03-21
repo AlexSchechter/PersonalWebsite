@@ -57,7 +57,7 @@ namespace Blog.Controllers
         }
 
         // GET: BlogEntries/Create
-        [Authorize(Roles = "Admin")]
+        [Authorize/*(Roles = "Admin")*/]
         public ActionResult Create()
         {
             return View();
@@ -68,7 +68,7 @@ namespace Blog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize/*(Roles = "Admin")*/]
         public ActionResult Create([Bind(Include = "Title,Summary,Body,Published")] BlogEntry blogEntry, HttpPostedFileBase fileUpload)
         {
             if (ModelState.IsValid)
