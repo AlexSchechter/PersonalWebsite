@@ -274,6 +274,7 @@
     <Content Include="assets\images\blog\blog.png" />
     <Content Include="assets\images\budgeting.jpg" />
     <Content Include="assets\images\bugatti.jpg" />
+    <Content Include="assets\images\BugTracker2.png" />
     <Content Include="assets\images\client\client.png" />
     <Content Include="assets\images\CoderFoundryjpg.jpg" />
     <Content Include="assets\images\download.png" />

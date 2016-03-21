@@ -1278,5 +1278,25 @@ Footer Section
     height:450px;
     overflow-y:auto !important;
     overflow-x:auto !important;
+}
 
+@media (min-width: 768px) {
+    #navigation .navigation-list 
+    {
+        max-width: 595px !important;
+    }
+}
+
+@media (min-width: 992px) {
+    #navigation .navigation-list 
+    {
+        max-width: 778.3px !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    #navigation .navigation-list 
+    {
+        max-width: 945px !important;
+    }
 }
